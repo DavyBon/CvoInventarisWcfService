@@ -1,0 +1,39 @@
+C:\Users\Davy\Desktop\Eindwerk\WCF web services\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.dll.config
+C:\Users\Davy\Desktop\Eindwerk\WCF web services\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.dll
+C:\Users\Davy\Desktop\Eindwerk\WCF web services\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.pdb
+C:\Users\Davy\Desktop\Eindwerk\WCF web services\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
+C:\Users\Davy\Desktop\Eindwerk\WCF web services\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
+C:\Users\Davy\Desktop\Eindwerk\WCF web services\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb
+C:\Users\Davy\Desktop\web services\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.dll.config
+C:\Users\Davy\Desktop\web services\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.dll
+C:\Users\Davy\Desktop\web services\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.pdb
+C:\Users\Davy\Desktop\web services\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
+C:\Users\Davy\Desktop\web services\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
+C:\Users\Davy\Desktop\web services\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb
+C:\Users\HomePc\Downloads\WcfServiceCvoInventaris\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.dll.config
+C:\Users\HomePc\Downloads\WcfServiceCvoInventaris\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.dll
+C:\Users\HomePc\Downloads\WcfServiceCvoInventaris\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.pdb
+C:\Users\HomePc\Downloads\WcfServiceCvoInventaris\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
+C:\Users\HomePc\Downloads\WcfServiceCvoInventaris\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
+C:\Users\HomePc\Downloads\WcfServiceCvoInventaris\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb
+F:\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.dll.config
+F:\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.dll
+F:\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.pdb
+F:\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
+F:\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
+F:\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb
+F:\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
+F:\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
+F:\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb
+G:\Eindwerk\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
+G:\Eindwerk\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
+G:\Eindwerk\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb
+E:\Eindwerk\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
+E:\Eindwerk\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
+E:\Eindwerk\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb
+G:\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
+G:\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
+G:\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb
+C:\Users\Davy\Desktop\Eindwerk\WCF services samenvoeging\Compleet\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
+C:\Users\Davy\Desktop\Eindwerk\WCF services samenvoeging\Compleet\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
+C:\Users\Davy\Desktop\Eindwerk\WCF services samenvoeging\Compleet\WcfServiceCvoInventarisCompleet\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb
