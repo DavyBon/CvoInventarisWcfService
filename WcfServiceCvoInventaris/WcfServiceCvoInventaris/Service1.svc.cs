@@ -244,12 +244,12 @@ namespace WcfServiceCvoInventaris
             return tblObjectType.GetAll();
         }
 
-        public int ObjectTypeDelete(int id)
+        public bool ObjectTypeDelete(int id)
         {
             return tblObjectType.Delete(id);
         }
 
-        public int ObjectTypeUpdate(ObjectTypes objectType)
+        public bool ObjectTypeUpdate(ObjectTypes objectType)
         {
             return tblObjectType.Update(objectType);
         }
@@ -261,7 +261,7 @@ namespace WcfServiceCvoInventaris
             return tblVerzekering.Create(verzekering);
         }
 
-        public int VerzekeringDelete(int id)
+        public bool VerzekeringDelete(int id)
         {
             return tblVerzekering.Delete(id);
         }
@@ -276,7 +276,7 @@ namespace WcfServiceCvoInventaris
             return tblVerzekering.GetById(id);
         }
 
-        public int VerzekeringUpdate(Verzekering verzekering)
+        public bool VerzekeringUpdate(Verzekering verzekering)
         {
             return tblVerzekering.Update(verzekering);
         }
@@ -298,12 +298,12 @@ namespace WcfServiceCvoInventaris
             return tblHardware.GetAll();
         }
 
-        public int HardwareUpdate(Hardware hardware)
+        public bool HardwareUpdate(Hardware hardware)
         {
             return tblHardware.Update(hardware);
         }
 
-        public int HardwareDelete(int id)
+        public bool HardwareDelete(int id)
         {
             return tblHardware.Delete(id);
         }

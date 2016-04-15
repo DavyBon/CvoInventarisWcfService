@@ -43,24 +43,6 @@ namespace WcfServiceCvoInventaris.DataAccess
             return result;
         }
 
-        public int Delete(int id)
-        {
-            int result = 0;
-            using (SqlConnection con = new SqlConnection(GetConnectionString()))
-            {
-                SqlCommand command = new SqlCommand("TblVerzekeringDelete", con);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("idVerzekering", id);
-                try
-                {
-                    con.Open();
-                    result = command.ExecuteNonQuery();
-                }
-                catch{ }
-            }
-
-            return result;
-        }
 
         public List<Verzekering> GetAll()
         {
@@ -115,9 +97,9 @@ namespace WcfServiceCvoInventaris.DataAccess
             return verzekering;
         }
 
-        public int Update(Verzekering t)
+        public bool Update(Verzekering t)
         {
-            int result = 0;
+            bool result = false;
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
                 SqlCommand command = new SqlCommand("TblVerzekeringUpdate", con);
@@ -127,9 +109,34 @@ namespace WcfServiceCvoInventaris.DataAccess
                 try
                 {
                     con.Open();
-                    result = command.ExecuteNonQuery();
+                    if (command.ExecuteNonQuery()> 0)
+                    {
+                        result = true;
+                    }
                 }
-                catch  { }
+                catch { }
+            }
+
+            return result;
+        }
+
+        public bool Delete(int id)
+        {
+            bool result = false;
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                SqlCommand command = new SqlCommand("TblVerzekeringDelete", con);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("idVerzekering", id);
+                try
+                {
+                    con.Open();
+                    if (command.ExecuteNonQuery() > 0)
+                    {
+                        result = true;
+                    }
+                }
+                catch { }
             }
 
             return result;

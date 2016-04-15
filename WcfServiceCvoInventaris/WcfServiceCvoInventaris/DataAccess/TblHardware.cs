@@ -42,25 +42,6 @@ namespace WcfServiceCvoInventaris.DataAccess
             return result;
         }
 
-        public int Delete(int id)
-        {
-            int result = 0;
-            using (SqlConnection con = new SqlConnection(GetConnectionString()))
-            {
-                SqlCommand command = new SqlCommand("TblHardwareDelete", con);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@idHardware", id);
-                try
-                {
-                    con.Open();
-                    result = command.ExecuteNonQuery();
-                }
-                catch{ }
-            }
-
-            return result;
-        }
-
         public List<Hardware> GetAll()
         {
             List<Hardware> hardwares = new List<Hardware>();
@@ -121,9 +102,9 @@ namespace WcfServiceCvoInventaris.DataAccess
             return hardware;
         }
 
-        public int Update(Hardware t)
+        public bool Update(Hardware t)
         {
-            int result = 0;
+            bool result = false;
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
                 SqlCommand command = new SqlCommand("TblHardwareUpdate", con);
@@ -136,9 +117,34 @@ namespace WcfServiceCvoInventaris.DataAccess
                 try
                 {
                     con.Open();
-                    result = command.ExecuteNonQuery();
+                    if(command.ExecuteNonQuery() > 0)
+                    {
+                        result = true;
+                    }
                 }
-                catch{ }
+                catch { }
+            }
+
+            return result;
+        }
+
+        public bool Delete(int id)
+        {
+            bool result = false;
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                SqlCommand command = new SqlCommand("TblHardwareDelete", con);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@idHardware", id);
+                try
+                {
+                    con.Open();
+                    if (command.ExecuteNonQuery() > 0)
+                    {
+                        result = true;
+                    }
+                }
+                catch { }
             }
 
             return result;

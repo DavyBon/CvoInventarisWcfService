@@ -106,7 +106,7 @@ namespace WcfServiceCvoInventaris
         int VerzekeringCreate(Verzekering verzekering);
 
         [OperationContract]
-        int VerzekeringDelete(int id);
+        bool VerzekeringDelete(int id);
 
         [OperationContract]
         List<Verzekering> VerzekeringGetAll();
@@ -115,7 +115,7 @@ namespace WcfServiceCvoInventaris
         Verzekering VerzekeringGetById(int id);
 
         [OperationContract]
-        int VerzekeringUpdate(Verzekering verzekering);
+        bool VerzekeringUpdate(Verzekering verzekering);
         #endregion
 
         #region CRUD TblObjectType
@@ -129,10 +129,10 @@ namespace WcfServiceCvoInventaris
         List<ObjectTypes> ObjectTypeGetAll();
 
         [OperationContract]
-        int ObjectTypeDelete(int id);
+        bool ObjectTypeDelete(int id);
 
         [OperationContract]
-        int ObjectTypeUpdate(ObjectTypes objectType);
+        bool ObjectTypeUpdate(ObjectTypes objectType);
         #endregion
 
         #region CRUD TblHardware
@@ -146,10 +146,10 @@ namespace WcfServiceCvoInventaris
         List<Hardware> HardwareGetAll();
 
         [OperationContract]
-        int HardwareUpdate(Hardware hardware);
+        bool HardwareUpdate(Hardware hardware);
 
         [OperationContract]
-        int HardwareDelete(int id);
+        bool HardwareDelete(int id);
         #endregion
 
         #region CRUD TblHarddisk

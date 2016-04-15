@@ -34,25 +34,6 @@ namespace WcfServiceCvoInventaris.DataAccess
             return result;
         }
 
-        public int Delete(int id)
-        {
-            int result = 0;
-            using (SqlConnection con = new SqlConnection(GetConnectionString()))
-            {
-                SqlCommand command = new SqlCommand("TbIObjectTypeDelete", con);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@idObjectType", id);
-                try
-                {
-                    con.Open();
-                    result = command.ExecuteNonQuery();
-                }
-                catch   { }
-            }
-
-            return result;
-        }
-
         public List<ObjectTypes> GetAll()
         {
             List<ObjectTypes> objectTypes = new List<ObjectTypes>();
@@ -106,21 +87,24 @@ namespace WcfServiceCvoInventaris.DataAccess
             return objectTypes;
         }
 
-        public int Update(ObjectTypes t)
+
+       public bool Delete(int id)
         {
-            int result = 0;
+            bool result = false;
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
-                SqlCommand command = new SqlCommand("TblObjectTypeUpdate", con);
+                SqlCommand command = new SqlCommand("TbIObjectTypeDelete", con);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@idObjectType", t.Id);
-                command.Parameters.AddWithValue("@Omschrijving", t.Omschrijving);
+                command.Parameters.AddWithValue("@idObjectType", id);
                 try
                 {
                     con.Open();
-                    result = command.ExecuteNonQuery();
+                    if(command.ExecuteNonQuery() > 0)
+                    {
+                        result = true;
+                    }
                 }
-                catch   { }
+                catch { }
             }
 
             return result;
@@ -132,5 +116,27 @@ namespace WcfServiceCvoInventaris.DataAccess
                 .ConnectionStrings["CvoInventarisDBConnection"].ConnectionString;
         }
 
+        public bool Update(ObjectTypes t)
+        {
+            bool result = false;
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                SqlCommand command = new SqlCommand("TblObjectTypeUpdate", con);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@idObjectType", t.Id);
+                command.Parameters.AddWithValue("@Omschrijving", t.Omschrijving);
+                try
+                {
+                    con.Open();
+                    if (command.ExecuteNonQuery() > 0)
+                    {
+                        result = true;
+                    }
+                }
+                catch { }
+            }
+
+            return result;
+        }
     }
 }
