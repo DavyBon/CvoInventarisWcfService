@@ -26,6 +26,7 @@ namespace WcfServiceCvoInventaris
         TblHarddisk dataHarddisk;
         TblLeverancier dataLeverancier;
         TblLokaal dataLokaal;
+        TblFactuur dataFactuur;
         SqlConnection connection = new SqlConnection("Data Source=92.222.220.213,1500;Initial Catalog=CvoInventarisdb;Persist Security Info=True;User ID=sa;Password=grati#s1867");
         SqlCommand command;
         #endregion
@@ -45,6 +46,7 @@ namespace WcfServiceCvoInventaris
             dataHarddisk = new TblHarddisk();
             dataLeverancier = new TblLeverancier();
             dataLokaal = new TblLokaal();
+            dataFactuur = new TblFactuur();
         }
         #endregion
 
@@ -407,6 +409,40 @@ namespace WcfServiceCvoInventaris
         public bool LokaalDelete(int id)
         {
             if (dataLokaal.Delete(id)) return true;
+            return false;
+        }
+        #endregion
+
+        #region CRUD TblFactuur
+        public List<Factuur> FactuurGetAll()
+        {
+            List<Factuur> list = dataFactuur.GetAll();
+            if (list == null) return null;
+            return list;
+        }
+
+        public Factuur FactuurGetById(int id)
+        {
+            Factuur f = dataFactuur.GetById(id);
+            if (f == null) return null;
+            return f;
+        }
+
+        public int FactuurCreate(Factuur f)
+        {
+            try { return dataFactuur.Create(f); }
+            catch { return -1; }
+        }
+
+        public bool FactuurUpdate(Factuur f)
+        {
+            if (dataFactuur.Update(f)) return true;
+            return false;
+        }
+
+        public bool FactuurDelete(int id)
+        {
+            if (dataFactuur.Delete(id)) return true;
             return false;
         }
         #endregion

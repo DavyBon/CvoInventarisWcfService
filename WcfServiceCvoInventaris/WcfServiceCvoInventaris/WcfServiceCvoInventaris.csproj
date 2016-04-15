@@ -71,6 +71,7 @@
     <Compile Include="DataAccess\Interfaces\ICrudable.cs" />
     <Compile Include="DataAccess\TblCpu.cs" />
     <Compile Include="DataAccess\TblDevice.cs" />
+    <Compile Include="DataAccess\TblFactuur.cs" />
     <Compile Include="DataAccess\TblGrafischeKaart.cs" />
     <Compile Include="DataAccess\TblHarddisk.cs">
       <SubType>Code</SubType>

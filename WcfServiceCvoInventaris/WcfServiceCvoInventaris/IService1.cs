@@ -203,6 +203,22 @@ namespace WcfServiceCvoInventaris
         bool LokaalDelete(int id);
         #endregion
 
+        #region CRUD TblFactuur
+        [OperationContract]
+        List<Factuur> FactuurGetAll();
+
+        [OperationContract]
+        Factuur FactuurGetById(int id);
+
+        [OperationContract]
+        int FactuurCreate(Factuur f);
+
+        [OperationContract]
+        bool FactuurUpdate(Factuur f);
+
+        [OperationContract]
+        bool FactuurDelete(int id);
+        #endregion
     }
 
     #region DataContract TblCpu
@@ -500,4 +516,72 @@ namespace WcfServiceCvoInventaris
         public int idNetwerk { get; set; }
     }
     #endregion
+
+    #region DataContract TblFactuur
+    [DataContract]
+    public class Factuur
+    {
+        [DataMember]
+        public int idFactuur { get; set; }
+
+        [DataMember]
+        public string Boekjaar { get; set; }
+
+        [DataMember]
+        public string CvoVolgNummer { get; set; }
+
+        [DataMember]
+        public string FactuurNummer { get; set; }
+
+        [DataMember]
+        public DateTime FactuurDatum { get; set; }
+
+        [DataMember]
+        public bool FactuurStatusGetekend { get; set; }
+
+        [DataMember]
+        public DateTime VerwerkingsDatum { get; set; }
+
+        [DataMember]
+        public int idLeverancier { get; set; }
+
+        [DataMember]
+        public int Prijs { get; set; }
+
+        [DataMember]
+        public int Garantie { get; set; }
+
+        [DataMember]
+        public string Omschrijving { get; set; }
+
+        [DataMember]
+        public string Opmerking { get; set; }
+
+        [DataMember]
+        public int Afschrijfperiode { get; set; }
+
+        [DataMember]
+        public string OleDoc { get; set; }
+
+        [DataMember]
+        public string OleDocPath { get; set; }
+
+        [DataMember]
+        public string OleDocFileName { get; set; }
+
+        [DataMember]
+        public DateTime DatumInsert { get; set; }
+
+        [DataMember]
+        public string UserInsert { get; set; }
+
+        [DataMember]
+        public DateTime DatumModified { get; set; }
+
+        [DataMember]
+        public string UserModified { get; set; }
+    }
+    #endregion
+
+
 }
