@@ -501,19 +501,19 @@ namespace WcfServiceCvoInventaris
     public class Lokaal
     {
         [DataMember]
-        public int idLokaal { get; set; }
+        public int IdLokaal { get; set; }
 
         [DataMember]
-        public string lokaalNaam { get; set; }
+        public string LokaalNaam { get; set; }
 
         [DataMember]
-        public int aantalPlaatsen { get; set; }
+        public int AantalPlaatsen { get; set; }
 
         [DataMember]
-        public bool isComputerLokaal { get; set; }
+        public bool IsComputerLokaal { get; set; }
 
         [DataMember]
-        public int idNetwerk { get; set; }
+        public int IdNetwerk { get; set; }
     }
     #endregion
 
