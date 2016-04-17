@@ -290,38 +290,38 @@ namespace WcfServiceCvoInventaris
     #region DataContract TblInventaris
     public class Inventaris
     {
-        public int id { get; set; }
-        public string label { get; set; }
-        public int idObject { get; set; }
-        public int idLokaal { get; set; }
-        public int aankoopjaar { get; set; }
-        public int afschrijvingsperiode { get; set; }
-        public string historiek { get; set; }
-        public bool isActief { get; set; }
-        public bool isAanwezig { get; set; }
-        public int idVerzekering { get; set; }
+        public int Id { get; set; }
+        public string Label { get; set; }
+        public int IdObject { get; set; }
+        public int IdLokaal { get; set; }
+        public int Aankoopjaar { get; set; }
+        public int Afschrijvingsperiode { get; set; }
+        public string Historiek { get; set; }
+        public bool IsActief { get; set; }
+        public bool IsAanwezig { get; set; }
+        public int IdVerzekering { get; set; }
     }
     #endregion
 
     #region DataContract TblObject
     public class Object
     {
-        public int id { get; set; }
-        public int idObjectType { get; set; }
-        public string kenmerken { get; set; }
-        public int idLeverancier { get; set; }
-        public int idFactuur { get; set; }
+        public int Id { get; set; }
+        public int IdObjectType { get; set; }
+        public string Kenmerken { get; set; }
+        public int IdLeverancier { get; set; }
+        public int IdFactuur { get; set; }
     }
     #endregion
 
     #region DataContract TblNetwerk
     public class Netwerk
     {
-        public int id { get; set; }
-        public string merk { get; set; }
-        public string type { get; set; }
-        public string snelheid { get; set; }
-        public string driver { get; set; }
+        public int Id { get; set; }
+        public string Merk { get; set; }
+        public string Type { get; set; }
+        public string Snelheid { get; set; }
+        public string Driver { get; set; }
     }
     #endregion
 
