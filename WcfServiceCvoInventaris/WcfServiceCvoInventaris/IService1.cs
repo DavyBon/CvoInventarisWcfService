@@ -432,16 +432,16 @@ namespace WcfServiceCvoInventaris
     public class Harddisk
     {
         [DataMember]
-        public int idHarddisk { get; set; }
+        public int IdHarddisk { get; set; }
 
         [DataMember]
-        public string merk { get; set; }
+        public string Merk { get; set; }
 
         [DataMember]
-        public int grootte { get; set; }
+        public int Grootte { get; set; }
 
         [DataMember]
-        public string fabrieksNummer { get; set; }
+        public string FabrieksNummer { get; set; }
     }
     #endregion
 
@@ -450,49 +450,49 @@ namespace WcfServiceCvoInventaris
     public class Leverancier
     {
         [DataMember]
-        public int idLeverancier { get; set; }
+        public int IdLeverancier { get; set; }
 
         [DataMember]
-        public string naam { get; set; }
+        public string Naam { get; set; }
 
         [DataMember]
-        public string afkorting { get; set; }
+        public string Afkorting { get; set; }
 
         [DataMember]
-        public string straat { get; set; }
+        public string Straat { get; set; }
 
         [DataMember]
-        public int huisNummer { get; set; }
+        public int HuisNummer { get; set; }
 
         [DataMember]
-        public int busNummer { get; set; }
+        public int BusNummer { get; set; }
 
         [DataMember]
-        public int postcode { get; set; }
+        public int Postcode { get; set; }
 
         [DataMember]
-        public string telefoon { get; set; }
+        public string Telefoon { get; set; }
 
         [DataMember]
-        public string fax { get; set; }
+        public string Fax { get; set; }
 
         [DataMember]
-        public string email { get; set; }
+        public string Email { get; set; }
 
         [DataMember]
-        public string website { get; set; }
+        public string Website { get; set; }
 
         [DataMember]
-        public string btwNummer { get; set; }
+        public string BtwNummer { get; set; }
 
         [DataMember]
-        public string iban { get; set; }
+        public string Iban { get; set; }
 
         [DataMember]
-        public string bic { get; set; }
+        public string Bic { get; set; }
 
         [DataMember]
-        public DateTime toegevoegdOp { get; set; }
+        public DateTime ToegevoegdOp { get; set; }
     }
     #endregion
 
@@ -522,7 +522,7 @@ namespace WcfServiceCvoInventaris
     public class Factuur
     {
         [DataMember]
-        public int idFactuur { get; set; }
+        public int IdFactuur { get; set; }
 
         [DataMember]
         public string Boekjaar { get; set; }
@@ -543,7 +543,7 @@ namespace WcfServiceCvoInventaris
         public DateTime VerwerkingsDatum { get; set; }
 
         [DataMember]
-        public int idLeverancier { get; set; }
+        public int IdLeverancier { get; set; }
 
         [DataMember]
         public int Prijs { get; set; }
