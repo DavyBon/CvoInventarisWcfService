@@ -54,3 +54,4 @@ D:\School\Eindwerk\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvo
 D:\School\Eindwerk\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
 D:\School\Eindwerk\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
 D:\School\Eindwerk\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb
+C:\Users\Gebruiker\Desktop\GitHub\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
