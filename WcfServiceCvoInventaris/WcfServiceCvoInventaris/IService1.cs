@@ -11,6 +11,66 @@ namespace WcfServiceCvoInventaris
     [ServiceContract]
     public interface ICvoInventarisService
     {
+        #region CRUD TblAccount
+        [OperationContract]
+        Account AccountGetById(int id);
+
+        [OperationContract]
+        List<Account> AccountGetAll();
+
+        [OperationContract]
+        int AccountCreate(Account a);
+
+        [OperationContract]
+        bool AccountUpdate(Account a);
+
+        [OperationContract]
+        bool AccountDelete(int id);
+
+        [OperationContract]
+        bool AccountLogin(Account a);
+
+        [OperationContract]
+        Account AccountGetByEmail(string email);
+        #endregion
+
+        #region CRUD TblSession
+        [OperationContract]
+        Session SessionGetById(int id);
+
+        [OperationContract]
+        List<Session> SessionGetAll();
+
+        [OperationContract]
+        int SessionCreate(Session s);
+
+        [OperationContract]
+        bool SessionUpdate(Session s);
+
+        [OperationContract]
+        bool SessionDelete(int id);
+
+        [OperationContract]
+        bool SessionGetByAccount(Account a);
+        #endregion
+
+        #region CRUD TblTicketing
+        [OperationContract]
+        Ticket TicketingGetById(int id);
+
+        [OperationContract]
+        List<Ticket> TicketingGetAll();
+
+        [OperationContract]
+        int TicketingCreate(Ticket t);
+
+        [OperationContract]
+        bool TicketingUpdate(Ticket t);
+
+        [OperationContract]
+        bool TicketingDelete(int id);
+        #endregion
+
         #region CRUD TblCpu
         [OperationContract]
         Cpu CpuGetById(int id);
@@ -220,6 +280,78 @@ namespace WcfServiceCvoInventaris
         bool FactuurDelete(int id);
         #endregion
     }
+
+    #region DataContract TblAccount
+    [DataContract]
+    public class Account
+    {
+        [DataMember]
+        public int IdAccount { get; set; }
+
+        [DataMember]
+        public string Type { get; set; }
+
+        [DataMember]
+        public string Gebruikersnaam { get; set; }
+
+        [DataMember]
+        public string Voornaam { get; set; }
+
+        [DataMember]
+        public string Achternaam { get; set; }
+
+        [DataMember]
+        public string Telefoonnummer { get; set; }
+
+        [DataMember]
+        public string Email { get; set; }
+
+        [DataMember]
+        public string Wachtwoord { get; set; }
+    }
+    #endregion
+
+    #region DataContract TblSession
+    [DataContract]
+    public class Session
+    {
+        [DataMember]
+        public int IdSession { get; set; }
+
+        [DataMember]
+        public int IdAccount { get; set; }
+
+        [DataMember]
+        public string Device { get; set; }
+
+        [DataMember]
+        public DateTime Tijdstip { get; set; }
+    }
+    #endregion
+
+    #region DataContract TblTicketing
+    [DataContract]
+    public class Ticket
+    {
+        [DataMember]
+        public int IdTicket { get; set; }
+
+        [DataMember]
+        public string Verzender { get; set; }
+
+        [DataMember]
+        public string Ontvanger { get; set; }
+
+        [DataMember]
+        public DateTime Tijdstip { get; set; }
+
+        [DataMember]
+        public string Bericht { get; set; }
+
+        [DataMember]
+        public string Status { get; set; }
+    }
+    #endregion
 
     #region DataContract TblCpu
     [DataContract]

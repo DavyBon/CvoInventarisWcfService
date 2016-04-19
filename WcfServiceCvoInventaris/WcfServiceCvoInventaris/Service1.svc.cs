@@ -8,12 +8,16 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using WcfServiceCvoInventaris.DataAccess;
+using WcfServiceCvoInventaris.Helpers;
 
 namespace WcfServiceCvoInventaris
 {
     public class CvoInventarisService : ICvoInventarisService
     {
         #region FIELDS
+        TblAccount tblAccount;
+        TblSession tblSession;
+        TblTicketing tblTicketing;
         TblCpu tblCpu;
         TblDevice tblDevice;
         TblGrafischeKaart tblGrafischeKaart;
@@ -34,6 +38,9 @@ namespace WcfServiceCvoInventaris
         #region CONSTRUCTOR
         public CvoInventarisService()
         {
+            tblAccount = new TblAccount();
+            tblSession = new TblSession();
+            tblTicketing = new TblTicketing();
             tblCpu = new TblCpu();
             tblDevice = new TblDevice();
             tblGrafischeKaart = new TblGrafischeKaart();
@@ -47,6 +54,136 @@ namespace WcfServiceCvoInventaris
             dataLeverancier = new TblLeverancier();
             dataLokaal = new TblLokaal();
             dataFactuur = new TblFactuur();
+        }
+        #endregion
+
+        #region CRUD TblAccount
+        public Account AccountGetById(int id)
+        {
+            return tblAccount.GetById(id);
+        }
+
+        public List<Account> AccountGetAll()
+        {
+            return tblAccount.GetAll();
+        }
+
+        public int AccountCreate(Account a)
+        {
+            return tblAccount.Create(a);
+        }
+
+        public bool AccountUpdate(Account a)
+        {
+            return tblAccount.Update(a);
+        }
+
+        public bool AccountDelete(int id)
+        {
+            return tblAccount.Delete(id);
+        }
+
+        public bool AccountLogin(Account a)
+        {
+            try
+            {
+                Account accUitDB = AccountGetByEmail(a.Email);
+
+                if (accUitDB.Wachtwoord == "")
+                {
+                    // het e-mailadres staat niet in de DB, en returnt daardoor geen wachtwoord
+                    return false;
+                }
+                else
+                {
+                    // het e-mailadres staat in de DB, en returnde een wachtwoord
+                    if (PasswordStorage.VerifyPassword(a.Wachtwoord, accUitDB.Wachtwoord))
+                    {
+                        // ingegeven email en wachtwoord combinatie zijn juist, log de gebruiker in
+
+                        // sla een session op voor deze login
+                        Session s = new Session();
+                        s.IdAccount = accUitDB.IdAccount;
+                        s.Device = Environment.MachineName;
+                        s.Tijdstip = DateTime.Now;
+                        SessionCreate(s);
+
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }            
+        }
+
+        public Account AccountGetByEmail(string email)
+        {
+            return tblAccount.GetByEmail(email);
+        }
+        #endregion
+
+        #region CRUD TblSession
+        public Session SessionGetById(int id)
+        {
+            return tblSession.GetById(id);
+        }
+
+        public List<Session> SessionGetAll()
+        {
+            return tblSession.GetAll();
+        }
+
+        public int SessionCreate(Session s)
+        {
+            return tblSession.Create(s);
+        }
+
+        public bool SessionUpdate(Session s)
+        {
+            return tblSession.Update(s);
+        }
+
+        public bool SessionDelete(int id)
+        {
+            return tblSession.Delete(id);
+        }
+
+        public bool SessionGetByAccount(Account a)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region CRUD TblTicketing
+        public Ticket TicketingGetById(int id)
+        {
+            return tblTicketing.GetById(id);
+        }
+
+        public List<Ticket> TicketingGetAll()
+        {
+            return tblTicketing.GetAll();
+        }
+
+        public int TicketingCreate(Ticket t)
+        {
+            return tblTicketing.Create(t);
+        }
+
+        public bool TicketingUpdate(Ticket t)
+        {
+            return tblTicketing.Update(t);
+        }
+
+        public bool TicketingDelete(int id)
+        {
+            return tblTicketing.Delete(id);
         }
         #endregion
 

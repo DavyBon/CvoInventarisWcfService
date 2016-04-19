@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\Interfaces\ICrudable.cs" />
+    <Compile Include="DataAccess\TblAccount.cs" />
     <Compile Include="DataAccess\TblCpu.cs" />
     <Compile Include="DataAccess\TblDevice.cs" />
     <Compile Include="DataAccess\TblFactuur.cs" />
@@ -87,7 +88,10 @@
     <Compile Include="DataAccess\TblNetwerk.cs" />
     <Compile Include="DataAccess\TblObject.cs" />
     <Compile Include="DataAccess\TblObjectType.cs" />
+    <Compile Include="DataAccess\TblSession.cs" />
+    <Compile Include="DataAccess\TblTicketing.cs" />
     <Compile Include="DataAccess\TblVerzekering.cs" />
+    <Compile Include="Helpers\PasswordStorage.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
