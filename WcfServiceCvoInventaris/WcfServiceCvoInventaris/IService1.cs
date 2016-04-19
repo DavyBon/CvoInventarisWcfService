@@ -88,6 +88,9 @@ namespace WcfServiceCvoInventaris
         bool CpuDelete(int id);
         #endregion
 
+        [OperationContract]
+        List<Cpu> RapporteringCpu(string s, string[] keuzeKolommen);
+
         #region CRUD TblDevice
         [OperationContract]
         Device DeviceGetById(int id);
@@ -104,6 +107,8 @@ namespace WcfServiceCvoInventaris
         [OperationContract]
         bool DeviceDelete(int id);
         #endregion
+        [OperationContract]
+        List<Device> RapporteringDevice(string s, string[] keuzeKolommen);
 
         #region CRUD TblGrafischeKaart
         [OperationContract]
@@ -121,6 +126,9 @@ namespace WcfServiceCvoInventaris
         [OperationContract]
         bool GrafischeKaartDelete(int id);
         #endregion
+
+        [OperationContract]
+        List<GrafischeKaart> RapporteringGrafischeKaart(string s, string[] keuzeKolommen);
 
         #region CRUD TblInventaris
         [OperationContract]
@@ -160,6 +168,10 @@ namespace WcfServiceCvoInventaris
         [OperationContract]
         bool NetwerkDelete(int id);
         #endregion
+
+        [OperationContract]
+        List<Netwerk> RapporteringNetwerk(string s, string[] keuzeKolommen);
+
 
         #region CRUD TblVerzekering
         [OperationContract]
@@ -229,6 +241,10 @@ namespace WcfServiceCvoInventaris
         bool HarddiskDelete(int id);
         #endregion
 
+        [OperationContract]
+        List<Harddisk> RapporteringHarddisk(string s, string[] keuzeKolommen);
+
+
         #region CRUD TblLeverancier
         [OperationContract]
         List<Leverancier> LeverancierGetAll();
@@ -245,6 +261,9 @@ namespace WcfServiceCvoInventaris
         [OperationContract]
         bool LeverancierDelete(int id);
         #endregion
+
+        [OperationContract]
+        List<Leverancier> RapporteringLeverancier(string s, string[] keuzeKolommen);
 
         #region CRUD TblLokaal
         [OperationContract]

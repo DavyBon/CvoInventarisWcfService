@@ -160,5 +160,38 @@ namespace WcfServiceCvoInventaris.DataAccess
             }
         }
         #endregion
+        public List<Device> Rapportering(string s, string[] keuzeKolommen)
+        {
+            List<Device> devs = new List<Device>();
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand(s, con);
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                try
+                {
+                    con.Open();
+                    SqlDataReader result = cmd.ExecuteReader();
+                    if (result.HasRows)
+                    {
+                        while (result.Read())
+                        {
+                            Device dev = new Device();
+                            if (keuzeKolommen.Contains("idDevice")) { dev.IdDevice = (int)result["IdDevice"]; }
+                            if (keuzeKolommen.Contains("merk")) { dev.Merk = result["Merk"].ToString(); }
+                            if (keuzeKolommen.Contains("type")) { dev.Type = result["Type"].ToString(); }
+                            if (keuzeKolommen.Contains("serienummer")) { dev.Serienummer = result["Serienummer"].ToString(); }
+                            if (keuzeKolommen.Contains("isPcCompatibel")) { dev.IsPcCompatibel = (bool)result["IsPcCompatibel"]; }
+                            if (keuzeKolommen.Contains("fabrieksNummer")) { dev.FabrieksNummer = result["FabrieksNummer"].ToString(); }
+                            devs.Add(dev);
+                        }
+                    }
+                }
+                catch
+                {
+                }
+            }
+            return devs;
+        }
     }
 }

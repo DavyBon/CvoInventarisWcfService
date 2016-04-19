@@ -156,5 +156,36 @@ namespace WcfServiceCvoInventaris.DataAccess
             }
         }
         #endregion
+        public List<GrafischeKaart> Rapportering(string s, string[] keuzeKolommen)
+        {
+            List<GrafischeKaart> gks = new List<GrafischeKaart>();
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand(s, con);
+                cmd.CommandType = System.Data.CommandType.Text;
+                try
+                {
+                    con.Open();
+                    SqlDataReader result = cmd.ExecuteReader();
+                    if (result.HasRows)
+                    {
+                        while (result.Read())
+                        {
+                            GrafischeKaart gk = new GrafischeKaart();
+                            if (keuzeKolommen.Contains("idGrafischeKaart")) { gk.IdGrafischeKaart = (int)result["IdGrafischeKaart"]; }
+                            if (keuzeKolommen.Contains("merk")) { gk.Merk = result["Merk"].ToString(); }
+                            if (keuzeKolommen.Contains("type")) { gk.Type = result["Type"].ToString(); }
+                            if (keuzeKolommen.Contains("driver")) { gk.Driver = result["Driver"].ToString(); }
+                            if (keuzeKolommen.Contains("fabrieksNummer")) { gk.FabrieksNummer = result["FabrieksNummer"].ToString(); }
+                            gks.Add(gk);
+                        }
+                    }
+                }
+                catch
+                {
+                }
+            }
+            return gks;
+        }
     }
 }

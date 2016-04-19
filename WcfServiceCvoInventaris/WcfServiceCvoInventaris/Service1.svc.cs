@@ -583,5 +583,34 @@ namespace WcfServiceCvoInventaris
             return false;
         }
         #endregion
+        public List<Cpu> RapporteringCpu(string s, string[] keuzeKolommen)
+        {
+            return tblCpu.Rapportering(s, keuzeKolommen);
+        }
+
+        public List<Device> RapporteringDevice(string s, string[] keuzeKolommen)
+        {
+            return tblDevice.Rapportering(s, keuzeKolommen);
+        }
+
+        public List<GrafischeKaart> RapporteringGrafischeKaart(string s, string[] keuzeKolommen)
+        {
+            return tblGrafischeKaart.Rapportering(s, keuzeKolommen);
+        }
+
+        public List<Harddisk> RapporteringHarddisk(string s, string[] keuzeKolommen)
+        {
+            return dataHarddisk.Rapportering(s, keuzeKolommen);
+        }
+
+        public List<Netwerk> RapporteringNetwerk(string s, string[] keuzeKolommen)
+        {
+            return net.Rapportering(s, keuzeKolommen);
+        }
+
+        public List<Leverancier> RapporteringLeverancier(string s, string[] keuzeKolommen)
+        {
+            return dataLeverancier.Rapportering(s, keuzeKolommen);
+        }
     }
 }

@@ -156,5 +156,37 @@ namespace WcfServiceCvoInventaris.DataAccess
             }
         }
         #endregion
+        public List<Cpu> Rapportering(string s, string[] keuzeKolommen)
+        {
+            List<Cpu> cpus = new List<Cpu>();
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand(s, con);
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                try
+                {
+                    con.Open();
+                    SqlDataReader result = cmd.ExecuteReader();
+                    if (result.HasRows)
+                    {
+                        while (result.Read())
+                        {
+                            Cpu cpu = new Cpu();
+                            if (keuzeKolommen.Contains("idCpu")) { cpu.IdCpu = (int)result["IdCpu"]; }
+                            if (keuzeKolommen.Contains("merk")) { cpu.Merk = result["Merk"].ToString(); }
+                            if (keuzeKolommen.Contains("type")) { cpu.Type = result["Type"].ToString(); }
+                            if (keuzeKolommen.Contains("snelheid")) { cpu.Snelheid = (int)result["Snelheid"]; }
+                            if (keuzeKolommen.Contains("fabrieksNummer")) { cpu.FabrieksNummer = result["FabrieksNummer"].ToString(); }
+                            cpus.Add(cpu);
+                        }
+                    }
+                }
+                catch
+                {
+                }
+            }
+            return cpus;
+        }
     }
 }

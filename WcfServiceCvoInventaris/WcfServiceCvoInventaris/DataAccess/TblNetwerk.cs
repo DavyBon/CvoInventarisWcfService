@@ -155,5 +155,39 @@ namespace WcfServiceCvoInventaris.DataAccess
                 connection.Close();
             }
         }
+        public List<Netwerk> Rapportering(string s, string[] keuzeKolommen)
+        {
+            List<Netwerk> list = new List<Netwerk>();
+            Netwerk netwerk;
+            try
+            {
+                using (SqlCommand command = new SqlCommand(s, connection))
+                {
+                    connection.Open();
+                    command.CommandType = System.Data.CommandType.Text;
+                    SqlDataReader mySqlDataReader = command.ExecuteReader();
+
+                    while (mySqlDataReader.Read())
+                    {
+                        netwerk = new Netwerk();
+                        if (keuzeKolommen.Contains("idNetwerk")) { netwerk.id = (int)mySqlDataReader["idNetwerk"]; }
+                        if (keuzeKolommen.Contains("merk")) { netwerk.merk = mySqlDataReader["merk"].ToString(); }
+                        if (keuzeKolommen.Contains("type")) { netwerk.type = mySqlDataReader["type"].ToString(); }
+                        if (keuzeKolommen.Contains("snelheid")) { netwerk.snelheid = mySqlDataReader["snelheid"].ToString(); }
+                        if (keuzeKolommen.Contains("driver")) { netwerk.driver = mySqlDataReader["driver"].ToString(); }
+                        list.Add(netwerk);
+                    }
+                    return list;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

@@ -203,5 +203,37 @@ namespace WcfServiceCvoInventaris.DataAccess
         }
 
         #endregion
+        public List<Harddisk> Rapportering(string s, string[] keuzeKolommen)
+        {
+            List<Harddisk> list = new List<Harddisk>();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(GetConnectionString()))
+                {
+                    using (SqlCommand cmd = new SqlCommand(s, con))
+                    {
+                        con.Open();
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                        while (dr.Read())
+                        {
+                            Harddisk h = new Harddisk();
+                            if (keuzeKolommen.Contains("idHarddisk")) { h.idHarddisk = (int)dr["idHarddisk"]; }
+                            if (keuzeKolommen.Contains("merk")) { h.merk = dr["merk"].ToString(); }
+                            if (keuzeKolommen.Contains("grootte")) { h.grootte = (int)dr["grootte"]; }
+                            if (keuzeKolommen.Contains("fabrieksNummer")) { h.fabrieksNummer = dr["fabrieksNummer"].ToString(); }
+                            list.Add(h);
+                        }
+                        return list;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

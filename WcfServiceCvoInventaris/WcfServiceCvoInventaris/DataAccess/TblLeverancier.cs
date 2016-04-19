@@ -248,8 +248,50 @@ namespace WcfServiceCvoInventaris.DataAccess
                 return false;
             }
         }
-                    
 
+        public List<Leverancier> Rapportering(string s, string[] keuzeKolommen)
+        {
+            List<Leverancier> list = new List<Leverancier>();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(GetConnectionString()))
+                {
+                    using (SqlCommand cmd = new SqlCommand(s, con))
+                    {
+                        con.Open();
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                        while (dr.Read())
+                        {
+                            Leverancier l = new Leverancier();
+                            if (keuzeKolommen.Contains("idLeverancier")) { l.idLeverancier = (int)dr["idLeverancier"]; }
+                            if (keuzeKolommen.Contains("naam")) { l.naam = dr["naam"].ToString(); }
+                            if (keuzeKolommen.Contains("afkorting")) { l.afkorting = dr["afkorting"].ToString(); }
+                            if (keuzeKolommen.Contains("straat")) { l.straat = dr["straat"].ToString(); }
+                            if (keuzeKolommen.Contains("huisNummer")) { l.huisNummer = (int)dr["huisNummer"]; }
+                            if (keuzeKolommen.Contains("busNummer")) { l.busNummer = (int)dr["busNummer"]; }
+                            if (keuzeKolommen.Contains("postcode")) { l.postcode = (int)dr["postcode"]; }
+                            if (keuzeKolommen.Contains("telefoon")) { l.telefoon = dr["telefoon"].ToString(); }
+                            if (keuzeKolommen.Contains("fax")) { l.fax = dr["fax"].ToString(); }
+                            if (keuzeKolommen.Contains("email")) { l.email = dr["email"].ToString(); }
+                            if (keuzeKolommen.Contains("website")) { l.website = dr["website"].ToString(); }
+                            if (keuzeKolommen.Contains("btwNummer")) { l.btwNummer = dr["btwNummer"].ToString(); }
+                            if (keuzeKolommen.Contains("iban")) { l.iban = dr["iban"].ToString(); }
+                            if (keuzeKolommen.Contains("bic")) { l.bic = dr["bic"].ToString(); }
+                            if (keuzeKolommen.Contains("toegevoegdOp")) { l.toegevoegdOp = (DateTime)dr["toegevoegdOp"]; }
+                            list.Add(l);
+                        }
+                        return list;
+                    }
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
         #endregion
     }
 }
