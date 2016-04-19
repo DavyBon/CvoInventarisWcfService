@@ -48,9 +48,19 @@ C:\Users\Gebruiker\Desktop\GitHub\CvoInventarisWcfService\WcfServiceCvoInventari
 C:\Users\Gebruiker\Desktop\GitHub\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.pdb
 C:\Users\Gebruiker\Desktop\GitHub\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
 C:\Users\Gebruiker\Desktop\GitHub\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb
+<<<<<<< HEAD
 D:\Git Werkmap\CvoInventaris\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.dll.config
 D:\Git Werkmap\CvoInventaris\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.dll
 D:\Git Werkmap\CvoInventaris\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.pdb
 D:\Git Werkmap\CvoInventaris\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
 D:\Git Werkmap\CvoInventaris\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
 D:\Git Werkmap\CvoInventaris\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb
+=======
+D:\School\Eindwerk\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.dll.config
+D:\School\Eindwerk\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.dll
+D:\School\Eindwerk\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.pdb
+D:\School\Eindwerk\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
+D:\School\Eindwerk\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
+D:\School\Eindwerk\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb
+C:\Users\Gebruiker\Desktop\GitHub\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
+>>>>>>> origin/master
