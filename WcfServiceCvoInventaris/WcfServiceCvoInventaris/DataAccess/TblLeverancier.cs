@@ -65,21 +65,21 @@ namespace WcfServiceCvoInventaris.DataAccess
                         while (dr.Read())
                         {
                             Leverancier l = new Leverancier();
-                            l.idLeverancier = (int)dr["idLeverancier"];
-                            l.naam = dr["naam"].ToString();
-                            l.afkorting = dr["afkorting"].ToString();
-                            l.straat = dr["straat"].ToString();
-                            l.huisNummer = (int)dr["huisNummer"];
-                            l.busNummer = (int)dr["busNummer"];
-                            l.postcode = (int)dr["postcode"];
-                            l.telefoon = dr["telefoon"].ToString();
-                            l.fax = dr["fax"].ToString();
-                            l.email = dr["email"].ToString();
-                            l.website = dr["website"].ToString();
-                            l.btwNummer = dr["btwNummer"].ToString();
-                            l.iban = dr["iban"].ToString();
-                            l.bic = dr["bic"].ToString();
-                            l.toegevoegdOp = (DateTime)dr["toegevoegdOp"];
+                            l.IdLeverancier = (int)dr["idLeverancier"];
+                            l.Naam = dr["naam"].ToString();
+                            l.Afkorting = dr["afkorting"].ToString();
+                            l.Straat = dr["straat"].ToString();
+                            l.HuisNummer = (int)dr["huisNummer"];
+                            l.BusNummer = (int)dr["busNummer"];
+                            l.Postcode = (int)dr["postcode"];
+                            l.Telefoon = dr["telefoon"].ToString();
+                            l.Fax = dr["fax"].ToString();
+                            l.Email = dr["email"].ToString();
+                            l.Website = dr["website"].ToString();
+                            l.BtwNummer = dr["btwNummer"].ToString();
+                            l.Iban = dr["iban"].ToString();
+                            l.Bic = dr["bic"].ToString();
+                            l.ToegevoegdOp = (DateTime)dr["toegevoegdOp"];
                             list.Add(l);
                         }
                         return list;
@@ -115,21 +115,21 @@ namespace WcfServiceCvoInventaris.DataAccess
                         while (dr.Read())
                         {
                             l = new Leverancier();
-                            l.idLeverancier = (int)dr["idLeverancier"];
-                            l.naam = dr["naam"].ToString();
-                            l.afkorting = dr["afkorting"].ToString();
-                            l.straat = dr["straat"].ToString();
-                            l.huisNummer = (int)dr["huisNummer"];
-                            l.busNummer = (int)dr["busNummer"];
-                            l.postcode = (int)dr["postcode"];
-                            l.telefoon = dr["telefoon"].ToString();
-                            l.fax = dr["fax"].ToString();
-                            l.email = dr["email"].ToString();
-                            l.website = dr["website"].ToString();
-                            l.btwNummer = dr["btwNummer"].ToString();
-                            l.iban = dr["iban"].ToString();
-                            l.bic = dr["bic"].ToString();
-                            l.toegevoegdOp = (DateTime)dr["toegevoegdOp"];
+                            l.IdLeverancier = (int)dr["idLeverancier"];
+                            l.Naam = dr["naam"].ToString();
+                            l.Afkorting = dr["afkorting"].ToString();
+                            l.Straat = dr["straat"].ToString();
+                            l.HuisNummer = (int)dr["huisNummer"];
+                            l.BusNummer = (int)dr["busNummer"];
+                            l.Postcode = (int)dr["postcode"];
+                            l.Telefoon = dr["telefoon"].ToString();
+                            l.Fax = dr["fax"].ToString();
+                            l.Email = dr["email"].ToString();
+                            l.Website = dr["website"].ToString();
+                            l.BtwNummer = dr["btwNummer"].ToString();
+                            l.Iban = dr["iban"].ToString();
+                            l.Bic = dr["bic"].ToString();
+                            l.ToegevoegdOp = (DateTime)dr["toegevoegdOp"];
                         }
                         return l;
                     }
@@ -155,20 +155,20 @@ namespace WcfServiceCvoInventaris.DataAccess
                     {
                         con.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("naam", l.naam);
-                        cmd.Parameters.AddWithValue("afkorting", l.afkorting);
-                        cmd.Parameters.AddWithValue("straat", l.straat);
-                        cmd.Parameters.AddWithValue("huisNummer", l.huisNummer);
-                        cmd.Parameters.AddWithValue("busNummer", l.busNummer);
-                        cmd.Parameters.AddWithValue("postcode", l.postcode);
-                        cmd.Parameters.AddWithValue("telefoon", l.telefoon);
-                        cmd.Parameters.AddWithValue("fax", l.fax);
-                        cmd.Parameters.AddWithValue("email", l.email);
-                        cmd.Parameters.AddWithValue("website", l.website);
-                        cmd.Parameters.AddWithValue("btwNummer", l.btwNummer);
-                        cmd.Parameters.AddWithValue("iban", l.iban);
-                        cmd.Parameters.AddWithValue("bic", l.bic);
-                        cmd.Parameters.AddWithValue("toegevoegdOp", l.toegevoegdOp);
+                        cmd.Parameters.AddWithValue("naam", l.Naam);
+                        cmd.Parameters.AddWithValue("afkorting", l.Afkorting);
+                        cmd.Parameters.AddWithValue("straat", l.Straat);
+                        cmd.Parameters.AddWithValue("huisNummer", l.HuisNummer);
+                        cmd.Parameters.AddWithValue("busNummer", l.BusNummer);
+                        cmd.Parameters.AddWithValue("postcode", l.Postcode);
+                        cmd.Parameters.AddWithValue("telefoon", l.Telefoon);
+                        cmd.Parameters.AddWithValue("fax", l.Fax);
+                        cmd.Parameters.AddWithValue("email", l.Email);
+                        cmd.Parameters.AddWithValue("website", l.Website);
+                        cmd.Parameters.AddWithValue("btwNummer", l.BtwNummer);
+                        cmd.Parameters.AddWithValue("iban", l.Iban);
+                        cmd.Parameters.AddWithValue("bic", l.Bic);
+                        cmd.Parameters.AddWithValue("toegevoegdOp", l.ToegevoegdOp);
                         return Convert.ToInt32(cmd.ExecuteScalar());
                     }
                 }
@@ -195,21 +195,21 @@ namespace WcfServiceCvoInventaris.DataAccess
                     {
                         con.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("idLeverancier", l.idLeverancier);
-                        cmd.Parameters.AddWithValue("naam", l.naam);
-                        cmd.Parameters.AddWithValue("afkorting", l.afkorting);
-                        cmd.Parameters.AddWithValue("straat", l.straat);
-                        cmd.Parameters.AddWithValue("huisNummer", l.huisNummer);
-                        cmd.Parameters.AddWithValue("busNummer", l.busNummer);
-                        cmd.Parameters.AddWithValue("postcode", l.postcode);
-                        cmd.Parameters.AddWithValue("telefoon", l.telefoon);
-                        cmd.Parameters.AddWithValue("fax", l.fax);
-                        cmd.Parameters.AddWithValue("email", l.email);
-                        cmd.Parameters.AddWithValue("website", l.website);
-                        cmd.Parameters.AddWithValue("btwNummer", l.btwNummer);
-                        cmd.Parameters.AddWithValue("iban", l.iban);
-                        cmd.Parameters.AddWithValue("bic", l.bic);
-                        cmd.Parameters.AddWithValue("toegevoegdOp", l.toegevoegdOp);
+                        cmd.Parameters.AddWithValue("idLeverancier", l.IdLeverancier);
+                        cmd.Parameters.AddWithValue("naam", l.Naam);
+                        cmd.Parameters.AddWithValue("afkorting", l.Afkorting);
+                        cmd.Parameters.AddWithValue("straat", l.Straat);
+                        cmd.Parameters.AddWithValue("huisNummer", l.HuisNummer);
+                        cmd.Parameters.AddWithValue("busNummer", l.BusNummer);
+                        cmd.Parameters.AddWithValue("postcode", l.Postcode);
+                        cmd.Parameters.AddWithValue("telefoon", l.Telefoon);
+                        cmd.Parameters.AddWithValue("fax", l.Fax);
+                        cmd.Parameters.AddWithValue("email", l.Email);
+                        cmd.Parameters.AddWithValue("website", l.Website);
+                        cmd.Parameters.AddWithValue("btwNummer", l.BtwNummer);
+                        cmd.Parameters.AddWithValue("iban", l.Iban);
+                        cmd.Parameters.AddWithValue("bic", l.Bic);
+                        cmd.Parameters.AddWithValue("toegevoegdOp", l.ToegevoegdOp);
                         cmd.ExecuteReader();
                     }
                     return true;
@@ -266,21 +266,21 @@ namespace WcfServiceCvoInventaris.DataAccess
                         while (dr.Read())
                         {
                             Leverancier l = new Leverancier();
-                            if (keuzeKolommen.Contains("idLeverancier")) { l.idLeverancier = (int)dr["idLeverancier"]; }
-                            if (keuzeKolommen.Contains("naam")) { l.naam = dr["naam"].ToString(); }
-                            if (keuzeKolommen.Contains("afkorting")) { l.afkorting = dr["afkorting"].ToString(); }
-                            if (keuzeKolommen.Contains("straat")) { l.straat = dr["straat"].ToString(); }
-                            if (keuzeKolommen.Contains("huisNummer")) { l.huisNummer = (int)dr["huisNummer"]; }
-                            if (keuzeKolommen.Contains("busNummer")) { l.busNummer = (int)dr["busNummer"]; }
-                            if (keuzeKolommen.Contains("postcode")) { l.postcode = (int)dr["postcode"]; }
-                            if (keuzeKolommen.Contains("telefoon")) { l.telefoon = dr["telefoon"].ToString(); }
-                            if (keuzeKolommen.Contains("fax")) { l.fax = dr["fax"].ToString(); }
-                            if (keuzeKolommen.Contains("email")) { l.email = dr["email"].ToString(); }
-                            if (keuzeKolommen.Contains("website")) { l.website = dr["website"].ToString(); }
-                            if (keuzeKolommen.Contains("btwNummer")) { l.btwNummer = dr["btwNummer"].ToString(); }
-                            if (keuzeKolommen.Contains("iban")) { l.iban = dr["iban"].ToString(); }
-                            if (keuzeKolommen.Contains("bic")) { l.bic = dr["bic"].ToString(); }
-                            if (keuzeKolommen.Contains("toegevoegdOp")) { l.toegevoegdOp = (DateTime)dr["toegevoegdOp"]; }
+                            if (keuzeKolommen.Contains("idLeverancier")) { l.IdLeverancier = (int)dr["idLeverancier"]; }
+                            if (keuzeKolommen.Contains("naam")) { l.Naam = dr["naam"].ToString(); }
+                            if (keuzeKolommen.Contains("afkorting")) { l.Afkorting = dr["afkorting"].ToString(); }
+                            if (keuzeKolommen.Contains("straat")) { l.Straat = dr["straat"].ToString(); }
+                            if (keuzeKolommen.Contains("huisNummer")) { l.HuisNummer = (int)dr["huisNummer"]; }
+                            if (keuzeKolommen.Contains("busNummer")) { l.BusNummer = (int)dr["busNummer"]; }
+                            if (keuzeKolommen.Contains("postcode")) { l.Postcode = (int)dr["postcode"]; }
+                            if (keuzeKolommen.Contains("telefoon")) { l.Telefoon = dr["telefoon"].ToString(); }
+                            if (keuzeKolommen.Contains("fax")) { l.Fax = dr["fax"].ToString(); }
+                            if (keuzeKolommen.Contains("email")) { l.Email = dr["email"].ToString(); }
+                            if (keuzeKolommen.Contains("website")) { l.Website = dr["website"].ToString(); }
+                            if (keuzeKolommen.Contains("btwNummer")) { l.BtwNummer = dr["btwNummer"].ToString(); }
+                            if (keuzeKolommen.Contains("iban")) { l.Iban = dr["iban"].ToString(); }
+                            if (keuzeKolommen.Contains("bic")) { l.Bic = dr["bic"].ToString(); }
+                            if (keuzeKolommen.Contains("toegevoegdOp")) { l.ToegevoegdOp = (DateTime)dr["toegevoegdOp"]; }
                             list.Add(l);
                         }
                         return list;

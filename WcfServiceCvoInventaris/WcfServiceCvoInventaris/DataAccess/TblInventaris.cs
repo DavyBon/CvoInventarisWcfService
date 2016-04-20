@@ -20,15 +20,15 @@ namespace WcfServiceCvoInventaris.DataAccess
                 {
                     connection.Open();
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter("@label", inventaris.label));
-                    command.Parameters.Add(new SqlParameter("@idLokaal", inventaris.idLokaal));
-                    command.Parameters.Add(new SqlParameter("@idObject", inventaris.idObject));
-                    command.Parameters.Add(new SqlParameter("@aankoopjaar", inventaris.aankoopjaar));
-                    command.Parameters.Add(new SqlParameter("@afschrijvingsjaar", inventaris.afschrijvingsperiode));
-                    command.Parameters.Add(new SqlParameter("@historiek", inventaris.historiek));
-                    command.Parameters.Add(new SqlParameter("@isActief", Convert.ToInt32(inventaris.isActief)));
-                    command.Parameters.Add(new SqlParameter("@isAanwezig", Convert.ToInt32(inventaris.isAanwezig)));
-                    command.Parameters.Add(new SqlParameter("@idVerzekering", inventaris.idVerzekering));
+                    command.Parameters.Add(new SqlParameter("@label", inventaris.Label));
+                    command.Parameters.Add(new SqlParameter("@idLokaal", inventaris.IdLokaal));
+                    command.Parameters.Add(new SqlParameter("@idObject", inventaris.IdObject));
+                    command.Parameters.Add(new SqlParameter("@aankoopjaar", inventaris.Aankoopjaar));
+                    command.Parameters.Add(new SqlParameter("@afschrijvingsjaar", inventaris.Afschrijvingsperiode));
+                    command.Parameters.Add(new SqlParameter("@historiek", inventaris.Historiek));
+                    command.Parameters.Add(new SqlParameter("@isActief", Convert.ToInt32(inventaris.IsActief)));
+                    command.Parameters.Add(new SqlParameter("@isAanwezig", Convert.ToInt32(inventaris.IsAanwezig)));
+                    command.Parameters.Add(new SqlParameter("@idVerzekering", inventaris.IdVerzekering));
                     return Convert.ToInt32(command.ExecuteScalar());
                 }
             }
@@ -82,16 +82,16 @@ namespace WcfServiceCvoInventaris.DataAccess
                     while (mySqlDataReader.Read())
                     {
                         inventaris = new Inventaris();
-                        inventaris.id = (int)mySqlDataReader["idInventaris"];
-                        inventaris.label = mySqlDataReader["label"].ToString();
-                        inventaris.idLokaal = (int)mySqlDataReader["idLokaal"];
-                        inventaris.idObject = (int)mySqlDataReader["idObject"];
-                        inventaris.aankoopjaar = (int)mySqlDataReader["aankoopjaar"];
-                        inventaris.afschrijvingsperiode = (int)mySqlDataReader["afschrijvingsperiode"];
-                        inventaris.historiek = mySqlDataReader["historiek"].ToString();
-                        inventaris.isActief = Convert.ToBoolean(mySqlDataReader["isActief"]);
-                        inventaris.isAanwezig = Convert.ToBoolean(mySqlDataReader["isAanwezig"]);
-                        inventaris.idVerzekering = (int)mySqlDataReader["idVerzekering"];
+                        inventaris.Id = (int)mySqlDataReader["idInventaris"];
+                        inventaris.Label = mySqlDataReader["label"].ToString();
+                        inventaris.IdLokaal = (int)mySqlDataReader["idLokaal"];
+                        inventaris.IdObject = (int)mySqlDataReader["idObject"];
+                        inventaris.Aankoopjaar = (int)mySqlDataReader["aankoopjaar"];
+                        inventaris.Afschrijvingsperiode = (int)mySqlDataReader["afschrijvingsperiode"];
+                        inventaris.Historiek = mySqlDataReader["historiek"].ToString();
+                        inventaris.IsActief = Convert.ToBoolean(mySqlDataReader["isActief"]);
+                        inventaris.IsAanwezig = Convert.ToBoolean(mySqlDataReader["isAanwezig"]);
+                        inventaris.IdVerzekering = (int)mySqlDataReader["idVerzekering"];
                         list.Add(inventaris);
                     }
                     return list;
@@ -122,16 +122,16 @@ namespace WcfServiceCvoInventaris.DataAccess
                     while (mySqlDataReader.Read())
                     {
                         inventaris = new Inventaris();
-                        inventaris.id = (int)mySqlDataReader["idInventaris"];
-                        inventaris.label = mySqlDataReader["label"].ToString();
-                        inventaris.idLokaal = (int)mySqlDataReader["idLokaal"];
-                        inventaris.idObject = (int)mySqlDataReader["idObject"];
-                        inventaris.aankoopjaar = (int)mySqlDataReader["aankoopjaar"];
-                        inventaris.afschrijvingsperiode = (int)mySqlDataReader["afschrijvingsperiode"];
-                        inventaris.historiek = mySqlDataReader["historiek"].ToString();
-                        inventaris.isActief = Convert.ToBoolean(mySqlDataReader["isActief"]);
-                        inventaris.isAanwezig = Convert.ToBoolean(mySqlDataReader["isAanwezig"]);
-                        inventaris.idVerzekering = (int)mySqlDataReader["idVerzekering"];
+                        inventaris.Id = (int)mySqlDataReader["idInventaris"];
+                        inventaris.Label = mySqlDataReader["label"].ToString();
+                        inventaris.IdLokaal = (int)mySqlDataReader["idLokaal"];
+                        inventaris.IdObject = (int)mySqlDataReader["idObject"];
+                        inventaris.Aankoopjaar = (int)mySqlDataReader["aankoopjaar"];
+                        inventaris.Afschrijvingsperiode = (int)mySqlDataReader["afschrijvingsperiode"];
+                        inventaris.Historiek = mySqlDataReader["historiek"].ToString();
+                        inventaris.IsActief = Convert.ToBoolean(mySqlDataReader["isActief"]);
+                        inventaris.IsAanwezig = Convert.ToBoolean(mySqlDataReader["isAanwezig"]);
+                        inventaris.IdVerzekering = (int)mySqlDataReader["idVerzekering"];
                     }
                     return inventaris;
                 }
@@ -154,16 +154,16 @@ namespace WcfServiceCvoInventaris.DataAccess
                 {
                     connection.Open();
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter("@id", inventaris.id));
-                    command.Parameters.Add(new SqlParameter("@label", inventaris.label));
-                    command.Parameters.Add(new SqlParameter("@idLokaal", inventaris.idLokaal));
-                    command.Parameters.Add(new SqlParameter("@idObject", inventaris.idObject));
-                    command.Parameters.Add(new SqlParameter("@aankoopjaar", inventaris.aankoopjaar));
-                    command.Parameters.Add(new SqlParameter("@afschrijvingsjaar", inventaris.afschrijvingsperiode));
-                    command.Parameters.Add(new SqlParameter("@historiek", inventaris.historiek));
-                    command.Parameters.Add(new SqlParameter("@isActief", Convert.ToInt32(inventaris.isActief)));
-                    command.Parameters.Add(new SqlParameter("@isAanwezig", Convert.ToInt32(inventaris.isAanwezig)));
-                    command.Parameters.Add(new SqlParameter("@idVerzekering", inventaris.idVerzekering));
+                    command.Parameters.Add(new SqlParameter("@id", inventaris.Id));
+                    command.Parameters.Add(new SqlParameter("@label", inventaris.Label));
+                    command.Parameters.Add(new SqlParameter("@idLokaal", inventaris.IdLokaal));
+                    command.Parameters.Add(new SqlParameter("@idObject", inventaris.IdObject));
+                    command.Parameters.Add(new SqlParameter("@aankoopjaar", inventaris.Aankoopjaar));
+                    command.Parameters.Add(new SqlParameter("@afschrijvingsjaar", inventaris.Afschrijvingsperiode));
+                    command.Parameters.Add(new SqlParameter("@historiek", inventaris.Historiek));
+                    command.Parameters.Add(new SqlParameter("@isActief", Convert.ToInt32(inventaris.IsActief)));
+                    command.Parameters.Add(new SqlParameter("@isAanwezig", Convert.ToInt32(inventaris.IsAanwezig)));
+                    command.Parameters.Add(new SqlParameter("@idVerzekering", inventaris.IdVerzekering));
                     command.ExecuteReader();
                 }
                 return true;

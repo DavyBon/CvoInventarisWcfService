@@ -20,10 +20,10 @@ namespace WcfServiceCvoInventaris.DataAccess
                 {
                     connection.Open();
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter("@merk", netwerk.merk));
-                    command.Parameters.Add(new SqlParameter("@type", netwerk.type));
-                    command.Parameters.Add(new SqlParameter("@snelheid", netwerk.snelheid));
-                    command.Parameters.Add(new SqlParameter("@driver", netwerk.driver));
+                    command.Parameters.Add(new SqlParameter("@merk", netwerk.Merk));
+                    command.Parameters.Add(new SqlParameter("@type", netwerk.Type));
+                    command.Parameters.Add(new SqlParameter("@snelheid", netwerk.Snelheid));
+                    command.Parameters.Add(new SqlParameter("@driver", netwerk.Driver));
                     return Convert.ToInt32(command.ExecuteScalar());
                 }
             }
@@ -75,11 +75,11 @@ namespace WcfServiceCvoInventaris.DataAccess
                     while (mySqlDataReader.Read())
                     {
                         netwerk = new Netwerk();
-                        netwerk.id = (int)mySqlDataReader["idNetwerk"];
-                        netwerk.merk = mySqlDataReader["merk"].ToString();
-                        netwerk.type = mySqlDataReader["type"].ToString();
-                        netwerk.snelheid = mySqlDataReader["snelheid"].ToString();
-                        netwerk.driver = mySqlDataReader["driver"].ToString();
+                        netwerk.Id = (int)mySqlDataReader["idNetwerk"];
+                        netwerk.Merk = mySqlDataReader["merk"].ToString();
+                        netwerk.Type = mySqlDataReader["type"].ToString();
+                        netwerk.Snelheid = mySqlDataReader["snelheid"].ToString();
+                        netwerk.Driver = mySqlDataReader["driver"].ToString();
                         list.Add(netwerk);
                     }
                     return list;
@@ -110,11 +110,11 @@ namespace WcfServiceCvoInventaris.DataAccess
                     while (mySqlDataReader.Read())
                     {
                         netwerk = new Netwerk();
-                        netwerk.id = (int)mySqlDataReader["idNetwerk"];
-                        netwerk.merk = mySqlDataReader["merk"].ToString();
-                        netwerk.type = mySqlDataReader["type"].ToString();
-                        netwerk.snelheid = mySqlDataReader["snelheid"].ToString();
-                        netwerk.driver = mySqlDataReader["driver"].ToString();
+                        netwerk.Id = (int)mySqlDataReader["idNetwerk"];
+                        netwerk.Merk = mySqlDataReader["merk"].ToString();
+                        netwerk.Type = mySqlDataReader["type"].ToString();
+                        netwerk.Snelheid = mySqlDataReader["snelheid"].ToString();
+                        netwerk.Driver = mySqlDataReader["driver"].ToString();
                     }
                     return netwerk;
                 }
@@ -137,11 +137,11 @@ namespace WcfServiceCvoInventaris.DataAccess
                 {
                     connection.Open();
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter("@id", netwerk.id));
-                    command.Parameters.Add(new SqlParameter("@merk", netwerk.merk));
-                    command.Parameters.Add(new SqlParameter("@type", netwerk.type));
-                    command.Parameters.Add(new SqlParameter("@snelheid", netwerk.snelheid));
-                    command.Parameters.Add(new SqlParameter("@driver", netwerk.driver));
+                    command.Parameters.Add(new SqlParameter("@id", netwerk.Id));
+                    command.Parameters.Add(new SqlParameter("@merk", netwerk.Merk));
+                    command.Parameters.Add(new SqlParameter("@type", netwerk.Type));
+                    command.Parameters.Add(new SqlParameter("@snelheid", netwerk.Snelheid));
+                    command.Parameters.Add(new SqlParameter("@driver", netwerk.Driver));
                     command.ExecuteReader();
                 }
                 return true;
@@ -170,11 +170,11 @@ namespace WcfServiceCvoInventaris.DataAccess
                     while (mySqlDataReader.Read())
                     {
                         netwerk = new Netwerk();
-                        if (keuzeKolommen.Contains("idNetwerk")) { netwerk.id = (int)mySqlDataReader["idNetwerk"]; }
-                        if (keuzeKolommen.Contains("merk")) { netwerk.merk = mySqlDataReader["merk"].ToString(); }
-                        if (keuzeKolommen.Contains("type")) { netwerk.type = mySqlDataReader["type"].ToString(); }
-                        if (keuzeKolommen.Contains("snelheid")) { netwerk.snelheid = mySqlDataReader["snelheid"].ToString(); }
-                        if (keuzeKolommen.Contains("driver")) { netwerk.driver = mySqlDataReader["driver"].ToString(); }
+                        if (keuzeKolommen.Contains("idNetwerk")) { netwerk.Id = (int)mySqlDataReader["idNetwerk"]; }
+                        if (keuzeKolommen.Contains("merk")) { netwerk.Merk = mySqlDataReader["merk"].ToString(); }
+                        if (keuzeKolommen.Contains("type")) { netwerk.Type = mySqlDataReader["type"].ToString(); }
+                        if (keuzeKolommen.Contains("snelheid")) { netwerk.Snelheid = mySqlDataReader["snelheid"].ToString(); }
+                        if (keuzeKolommen.Contains("driver")) { netwerk.Driver = mySqlDataReader["driver"].ToString(); }
                         list.Add(netwerk);
                     }
                     return list;

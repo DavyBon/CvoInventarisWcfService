@@ -65,14 +65,14 @@ namespace WcfServiceCvoInventaris.DataAccess
                         while (dr.Read())
                         {
                             Factuur f = new Factuur();
-                            f.idFactuur = (int)dr["idFactuur"];
+                            f.IdFactuur = (int)dr["idFactuur"];
                             f.Boekjaar = dr["Boekjaar"].ToString();
                             f.CvoVolgNummer = dr["CvoVolgNummer"].ToString();
                             f.FactuurNummer = dr["FactuurNummer"].ToString();
                             f.FactuurDatum = (DateTime)dr["FactuurDatum"];
                             f.FactuurStatusGetekend = (bool)dr["FactuurStatusGetekend"];
                             f.VerwerkingsDatum = (DateTime)dr["VerwerkingsDatum"];
-                            f.idLeverancier = (int)dr["idLeverancier"];
+                            f.IdLeverancier = (int)dr["idLeverancier"];
                             f.Prijs = (int)dr["Prijs"];
                             f.Garantie = (int)dr["Garantie"];
                             f.Omschrijving = dr["Omschrijving"].ToString();
@@ -119,14 +119,14 @@ namespace WcfServiceCvoInventaris.DataAccess
                         while (dr.Read())
                         {
                             f = new Factuur();
-                            f.idFactuur = (int)dr["idFactuur"];
+                            f.IdFactuur = (int)dr["idFactuur"];
                             f.Boekjaar = dr["Boekjaar"].ToString();
                             f.CvoVolgNummer = dr["CvoVolgNummer"].ToString();
                             f.FactuurNummer = dr["FactuurNummer"].ToString();
                             f.FactuurDatum = (DateTime)dr["FactuurDatum"];
                             f.FactuurStatusGetekend = (bool)dr["FactuurStatusGetekend"];
                             f.VerwerkingsDatum = (DateTime)dr["VerwerkingsDatum"];
-                            f.idLeverancier = (int)dr["idLeverancier"];
+                            f.IdLeverancier = (int)dr["idLeverancier"];
                             f.Prijs = (int)dr["Prijs"];
                             f.Garantie = (int)dr["Garantie"];
                             f.Omschrijving = dr["Omschrijving"].ToString();
@@ -170,7 +170,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                         cmd.Parameters.AddWithValue("FactuurDatum", f.FactuurDatum);
                         cmd.Parameters.AddWithValue("FactuurStatusGetekend", f.FactuurStatusGetekend);
                         cmd.Parameters.AddWithValue("VerwerkingsDatum", f.VerwerkingsDatum);
-                        cmd.Parameters.AddWithValue("idLeverancier", f.idLeverancier);
+                        cmd.Parameters.AddWithValue("idLeverancier", f.IdLeverancier);
                         cmd.Parameters.AddWithValue("Prijs", f.Prijs);
                         cmd.Parameters.AddWithValue("Garantie", f.Garantie);
                         cmd.Parameters.AddWithValue("Omschrijving", f.Omschrijving);
@@ -208,14 +208,14 @@ namespace WcfServiceCvoInventaris.DataAccess
                     {
                         con.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("idFactuur", f.idFactuur);
+                        cmd.Parameters.AddWithValue("idFactuur", f.IdFactuur);
                         cmd.Parameters.AddWithValue("Boekjaar", f.Boekjaar);
                         cmd.Parameters.AddWithValue("CvoVolgNummer", f.CvoVolgNummer);
                         cmd.Parameters.AddWithValue("FactuurNummer", f.FactuurNummer);
                         cmd.Parameters.AddWithValue("FactuurDatum", f.FactuurDatum);
                         cmd.Parameters.AddWithValue("FactuurStatusGetekend", f.FactuurStatusGetekend);
                         cmd.Parameters.AddWithValue("VerwerkingsDatum", f.VerwerkingsDatum);
-                        cmd.Parameters.AddWithValue("idLeverancier", f.idLeverancier);
+                        cmd.Parameters.AddWithValue("idLeverancier", f.IdLeverancier);
                         cmd.Parameters.AddWithValue("Prijs", f.Prijs);
                         cmd.Parameters.AddWithValue("Garantie", f.Garantie);
                         cmd.Parameters.AddWithValue("Omschrijving", f.Omschrijving);

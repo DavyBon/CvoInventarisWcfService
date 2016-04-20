@@ -162,11 +162,11 @@ namespace WcfServiceCvoInventaris
         [OperationContract]
         List<Netwerk> NetwerkGetAll();
         [OperationContract]
-        Netwerk NetwerkGetById(int id);
+        Netwerk NetwerkGetById(int Id);
         [OperationContract]
         bool NetwerkUpdate(Netwerk Netwerk);
         [OperationContract]
-        bool NetwerkDelete(int id);
+        bool NetwerkDelete(int Id);
         #endregion
 
         [OperationContract]
@@ -441,38 +441,38 @@ namespace WcfServiceCvoInventaris
     #region DataContract TblInventaris
     public class Inventaris
     {
-        public int id { get; set; }
-        public string label { get; set; }
-        public int idObject { get; set; }
-        public int idLokaal { get; set; }
-        public int aankoopjaar { get; set; }
-        public int afschrijvingsperiode { get; set; }
-        public string historiek { get; set; }
-        public bool isActief { get; set; }
-        public bool isAanwezig { get; set; }
-        public int idVerzekering { get; set; }
+        public int Id { get; set; }
+        public string Label { get; set; }
+        public int IdObject { get; set; }
+        public int IdLokaal { get; set; }
+        public int Aankoopjaar { get; set; }
+        public int Afschrijvingsperiode { get; set; }
+        public string Historiek { get; set; }
+        public bool IsActief { get; set; }
+        public bool IsAanwezig { get; set; }
+        public int IdVerzekering { get; set; }
     }
     #endregion
 
     #region DataContract TblObject
     public class Object
     {
-        public int id { get; set; }
-        public int idObjectType { get; set; }
-        public string kenmerken { get; set; }
-        public int idLeverancier { get; set; }
-        public int idFactuur { get; set; }
+        public int Id { get; set; }
+        public int IdObjectType { get; set; }
+        public string Kenmerken { get; set; }
+        public int IdLeverancier { get; set; }
+        public int IdFactuur { get; set; }
     }
     #endregion
 
     #region DataContract TblNetwerk
     public class Netwerk
     {
-        public int id { get; set; }
-        public string merk { get; set; }
-        public string type { get; set; }
-        public string snelheid { get; set; }
-        public string driver { get; set; }
+        public int Id { get; set; }
+        public string Merk { get; set; }
+        public string Type { get; set; }
+        public string Snelheid { get; set; }
+        public string Driver { get; set; }
     }
     #endregion
 
@@ -583,16 +583,16 @@ namespace WcfServiceCvoInventaris
     public class Harddisk
     {
         [DataMember]
-        public int idHarddisk { get; set; }
+        public int IdHarddisk { get; set; }
 
         [DataMember]
-        public string merk { get; set; }
+        public string Merk { get; set; }
 
         [DataMember]
-        public int grootte { get; set; }
+        public int Grootte { get; set; }
 
         [DataMember]
-        public string fabrieksNummer { get; set; }
+        public string FabrieksNummer { get; set; }
     }
     #endregion
 
@@ -601,49 +601,49 @@ namespace WcfServiceCvoInventaris
     public class Leverancier
     {
         [DataMember]
-        public int idLeverancier { get; set; }
+        public int IdLeverancier { get; set; }
 
         [DataMember]
-        public string naam { get; set; }
+        public string Naam { get; set; }
 
         [DataMember]
-        public string afkorting { get; set; }
+        public string Afkorting { get; set; }
 
         [DataMember]
-        public string straat { get; set; }
+        public string Straat { get; set; }
 
         [DataMember]
-        public int huisNummer { get; set; }
+        public int HuisNummer { get; set; }
 
         [DataMember]
-        public int busNummer { get; set; }
+        public int BusNummer { get; set; }
 
         [DataMember]
-        public int postcode { get; set; }
+        public int Postcode { get; set; }
 
         [DataMember]
-        public string telefoon { get; set; }
+        public string Telefoon { get; set; }
 
         [DataMember]
-        public string fax { get; set; }
+        public string Fax { get; set; }
 
         [DataMember]
-        public string email { get; set; }
+        public string Email { get; set; }
 
         [DataMember]
-        public string website { get; set; }
+        public string Website { get; set; }
 
         [DataMember]
-        public string btwNummer { get; set; }
+        public string BtwNummer { get; set; }
 
         [DataMember]
-        public string iban { get; set; }
+        public string Iban { get; set; }
 
         [DataMember]
-        public string bic { get; set; }
+        public string Bic { get; set; }
 
         [DataMember]
-        public DateTime toegevoegdOp { get; set; }
+        public DateTime ToegevoegdOp { get; set; }
     }
     #endregion
 
@@ -652,19 +652,19 @@ namespace WcfServiceCvoInventaris
     public class Lokaal
     {
         [DataMember]
-        public int idLokaal { get; set; }
+        public int IdLokaal { get; set; }
 
         [DataMember]
-        public string lokaalNaam { get; set; }
+        public string LokaalNaam { get; set; }
 
         [DataMember]
-        public int aantalPlaatsen { get; set; }
+        public int AantalPlaatsen { get; set; }
 
         [DataMember]
-        public bool isComputerLokaal { get; set; }
+        public bool IsComputerLokaal { get; set; }
 
         [DataMember]
-        public int idNetwerk { get; set; }
+        public int IdNetwerk { get; set; }
     }
     #endregion
 
@@ -673,7 +673,7 @@ namespace WcfServiceCvoInventaris
     public class Factuur
     {
         [DataMember]
-        public int idFactuur { get; set; }
+        public int IdFactuur { get; set; }
 
         [DataMember]
         public string Boekjaar { get; set; }
@@ -694,7 +694,7 @@ namespace WcfServiceCvoInventaris
         public DateTime VerwerkingsDatum { get; set; }
 
         [DataMember]
-        public int idLeverancier { get; set; }
+        public int IdLeverancier { get; set; }
 
         [DataMember]
         public int Prijs { get; set; }

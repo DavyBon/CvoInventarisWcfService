@@ -65,10 +65,10 @@ namespace WcfServiceCvoInventaris.DataAccess
                         while (dr.Read())
                         {
                             Harddisk h = new Harddisk();
-                            h.idHarddisk = (int)dr["idHarddisk"];
-                            h.merk = dr["merk"].ToString();
-                            h.grootte = (int)dr["grootte"];
-                            h.fabrieksNummer = dr["fabrieksNummer"].ToString();
+                            h.IdHarddisk = (int)dr["idHarddisk"];
+                            h.Merk = dr["merk"].ToString();
+                            h.Grootte = (int)dr["grootte"];
+                            h.FabrieksNummer = dr["fabrieksNummer"].ToString();
                             list.Add(h);
                         }
                         return list;
@@ -103,10 +103,10 @@ namespace WcfServiceCvoInventaris.DataAccess
                         while (dr.Read())
                         {
                             h = new Harddisk();
-                            h.idHarddisk = (int)dr["idHarddisk"];
-                            h.merk = dr["merk"].ToString();
-                            h.grootte = (int)dr["grootte"];
-                            h.fabrieksNummer = dr["fabrieksNummer"].ToString();
+                            h.IdHarddisk = (int)dr["idHarddisk"];
+                            h.Merk = dr["merk"].ToString();
+                            h.Grootte = (int)dr["grootte"];
+                            h.FabrieksNummer = dr["fabrieksNummer"].ToString();
                         }
                         return h;
                     }
@@ -132,9 +132,9 @@ namespace WcfServiceCvoInventaris.DataAccess
                     {
                         con.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("merk", h.merk);
-                        cmd.Parameters.AddWithValue("grootte", h.grootte);
-                        cmd.Parameters.AddWithValue("fabrieksNummer", h.fabrieksNummer);
+                        cmd.Parameters.AddWithValue("merk", h.Merk);
+                        cmd.Parameters.AddWithValue("grootte", h.Grootte);
+                        cmd.Parameters.AddWithValue("fabrieksNummer", h.FabrieksNummer);
                         return Convert.ToInt32(cmd.ExecuteScalar());
                     }
                 }
@@ -160,10 +160,10 @@ namespace WcfServiceCvoInventaris.DataAccess
                     {
                         con.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("idHarddisk", h.idHarddisk);
-                        cmd.Parameters.AddWithValue("merk", h.merk);
-                        cmd.Parameters.AddWithValue("grootte", h.grootte);
-                        cmd.Parameters.AddWithValue("fabrieksNummer", h.fabrieksNummer);
+                        cmd.Parameters.AddWithValue("idHarddisk", h.IdHarddisk);
+                        cmd.Parameters.AddWithValue("merk", h.Merk);
+                        cmd.Parameters.AddWithValue("grootte", h.Grootte);
+                        cmd.Parameters.AddWithValue("fabrieksNummer", h.FabrieksNummer);
                         cmd.ExecuteReader();
                     }
                     return true;
@@ -220,10 +220,10 @@ namespace WcfServiceCvoInventaris.DataAccess
                         while (dr.Read())
                         {
                             Harddisk h = new Harddisk();
-                            if (keuzeKolommen.Contains("idHarddisk")) { h.idHarddisk = (int)dr["idHarddisk"]; }
-                            if (keuzeKolommen.Contains("merk")) { h.merk = dr["merk"].ToString(); }
-                            if (keuzeKolommen.Contains("grootte")) { h.grootte = (int)dr["grootte"]; }
-                            if (keuzeKolommen.Contains("fabrieksNummer")) { h.fabrieksNummer = dr["fabrieksNummer"].ToString(); }
+                            if (keuzeKolommen.Contains("idHarddisk")) { h.IdHarddisk = (int)dr["idHarddisk"]; }
+                            if (keuzeKolommen.Contains("merk")) { h.Merk = dr["merk"].ToString(); }
+                            if (keuzeKolommen.Contains("grootte")) { h.Grootte = (int)dr["grootte"]; }
+                            if (keuzeKolommen.Contains("fabrieksNummer")) { h.FabrieksNummer = dr["fabrieksNummer"].ToString(); }
                             list.Add(h);
                         }
                         return list;

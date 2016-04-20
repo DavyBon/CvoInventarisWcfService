@@ -65,11 +65,11 @@ namespace WcfServiceCvoInventaris.DataAccess
                         while (dr.Read())
                         {
                             Lokaal l = new Lokaal();
-                            l.idLokaal = (int)dr["idLokaal"];
-                            l.lokaalNaam = dr["lokaalNaam"].ToString();
-                            l.aantalPlaatsen = (int)dr["aantalPlaatsen"];
-                            l.isComputerLokaal = (bool)dr["isComputerLokaal"];
-                            l.idNetwerk = (int)dr["idNetwerk"];
+                            l.IdLokaal = (int)dr["idLokaal"];
+                            l.LokaalNaam = dr["lokaalNaam"].ToString();
+                            l.AantalPlaatsen = (int)dr["aantalPlaatsen"];
+                            l.IsComputerLokaal = (bool)dr["isComputerLokaal"];
+                            l.IdNetwerk = (int)dr["idNetwerk"];
                             list.Add(l);
                         }
                         return list;
@@ -106,11 +106,11 @@ namespace WcfServiceCvoInventaris.DataAccess
                         while (dr.Read())
                         {
                             l = new Lokaal();
-                            l.idLokaal = (int)dr["idLokaal"];
-                            l.lokaalNaam = dr["lokaalNaam"].ToString();
-                            l.aantalPlaatsen = (int)dr["aantalPlaatsen"];
-                            l.isComputerLokaal = (bool)dr["isComputerLokaal"];
-                            l.idNetwerk = (int)dr["idNetwerk"];
+                            l.IdLokaal = (int)dr["idLokaal"];
+                            l.LokaalNaam = dr["lokaalNaam"].ToString();
+                            l.AantalPlaatsen = (int)dr["aantalPlaatsen"];
+                            l.IsComputerLokaal = (bool)dr["isComputerLokaal"];
+                            l.IdNetwerk = (int)dr["idNetwerk"];
                         }
                         return l;
                     }
@@ -136,10 +136,10 @@ namespace WcfServiceCvoInventaris.DataAccess
                     {
                         con.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("lokaalNaam", l.lokaalNaam);
-                        cmd.Parameters.AddWithValue("aantalPlaatsen", l.aantalPlaatsen);
-                        cmd.Parameters.AddWithValue("isComputerLokaal", l.isComputerLokaal);
-                        cmd.Parameters.AddWithValue("idNetwerk", l.idNetwerk);
+                        cmd.Parameters.AddWithValue("lokaalNaam", l.LokaalNaam);
+                        cmd.Parameters.AddWithValue("aantalPlaatsen", l.AantalPlaatsen);
+                        cmd.Parameters.AddWithValue("isComputerLokaal", l.IsComputerLokaal);
+                        cmd.Parameters.AddWithValue("idNetwerk", l.IdNetwerk);
                         return Convert.ToInt32(cmd.ExecuteScalar());
                     }
                 }
@@ -165,11 +165,11 @@ namespace WcfServiceCvoInventaris.DataAccess
                     {
                         con.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("idLokaal", l.idLokaal);
-                        cmd.Parameters.AddWithValue("lokaalNaam", l.lokaalNaam);
-                        cmd.Parameters.AddWithValue("aantalPlaatsen", l.aantalPlaatsen);
-                        cmd.Parameters.AddWithValue("isComputerLokaal", l.isComputerLokaal);
-                        cmd.Parameters.AddWithValue("idNetwerk", l.idNetwerk);
+                        cmd.Parameters.AddWithValue("idLokaal", l.IdLokaal);
+                        cmd.Parameters.AddWithValue("lokaalNaam", l.LokaalNaam);
+                        cmd.Parameters.AddWithValue("aantalPlaatsen", l.AantalPlaatsen);
+                        cmd.Parameters.AddWithValue("isComputerLokaal", l.IsComputerLokaal);
+                        cmd.Parameters.AddWithValue("idNetwerk", l.IdNetwerk);
                         cmd.ExecuteReader();            
                     }
                     return true;
