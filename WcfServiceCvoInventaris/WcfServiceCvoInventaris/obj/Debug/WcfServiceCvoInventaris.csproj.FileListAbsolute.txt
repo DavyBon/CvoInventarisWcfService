@@ -9,3 +9,9 @@ C:\Users\11613\Documents\GitHub\CvoInventarisWcfService\WcfServiceCvoInventaris\
 C:\Users\11613\Documents\GitHub\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
 C:\Users\11613\Documents\GitHub\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
 C:\Users\11613\Documents\GitHub\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb
+C:\Users\kenneth\Documents\CvoInventaris\wcf\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.dll.config
+C:\Users\kenneth\Documents\CvoInventaris\wcf\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.dll
+C:\Users\kenneth\Documents\CvoInventaris\wcf\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\bin\WcfServiceCvoInventaris.pdb
+C:\Users\kenneth\Documents\CvoInventaris\wcf\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.csprojResolveAssemblyReference.cache
+C:\Users\kenneth\Documents\CvoInventaris\wcf\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.dll
+C:\Users\kenneth\Documents\CvoInventaris\wcf\CvoInventarisWcfService\WcfServiceCvoInventaris\WcfServiceCvoInventaris\obj\Debug\WcfServiceCvoInventaris.pdb

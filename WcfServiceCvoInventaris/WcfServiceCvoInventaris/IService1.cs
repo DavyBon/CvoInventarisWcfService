@@ -514,6 +514,17 @@ namespace WcfServiceCvoInventaris
             set
             { idHardware = value; }
         }
+        [DataMember]
+        public string CpuMerk { get; set; }
+
+        [DataMember]
+        public string DeviceMerk { get; set; }
+
+        [DataMember]
+        public string GrafischeKaartMerk { get; set; }
+
+        [DataMember]
+        public string HarddiskMerk { get; set; }
     }
 
     #endregion

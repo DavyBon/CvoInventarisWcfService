@@ -63,6 +63,10 @@ namespace WcfServiceCvoInventaris.DataAccess
                             hardware.IdDevice = (int)reader["idDevice"];
                             hardware.IdGrafischeKaart = (int)reader["idGrafischeKaart"];
                             hardware.IdHarddisk = (int)reader["idHarddisk"];
+                            hardware.CpuMerk = reader["cm"].ToString();
+                            hardware.DeviceMerk = reader["dm"].ToString();
+                            hardware.GrafischeKaartMerk = reader["gm"].ToString();
+                            hardware.HarddiskMerk = reader["hm"].ToString();
                             hardwares.Add(hardware);
                         }
 
@@ -94,6 +98,10 @@ namespace WcfServiceCvoInventaris.DataAccess
                         hardware.IdDevice = (int)reader["idDevice"];
                         hardware.IdGrafischeKaart = (int)reader["idGrafischeKaart"];
                         hardware.IdHarddisk = (int)reader["idHarddisk"];
+                        hardware.CpuMerk = reader["cm"].ToString();
+                        hardware.DeviceMerk = reader["dm"].ToString();
+                        hardware.GrafischeKaartMerk = reader["gm"].ToString();
+                        hardware.HarddiskMerk = reader["hm"].ToString();
                     }
                 }
                 catch   { }
