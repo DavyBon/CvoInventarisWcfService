@@ -70,6 +70,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                             l.AantalPlaatsen = (int)dr["aantalPlaatsen"];
                             l.IsComputerLokaal = (bool)dr["isComputerLokaal"];
                             l.IdNetwerk = (int)dr["idNetwerk"];
+                            l.NetwerkMerk = dr["merk"].ToString();
                             list.Add(l);
                         }
                         return list;

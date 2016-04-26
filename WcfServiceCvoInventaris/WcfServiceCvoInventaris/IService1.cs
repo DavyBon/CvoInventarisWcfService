@@ -665,6 +665,10 @@ namespace WcfServiceCvoInventaris
 
         [DataMember]
         public int IdNetwerk { get; set; }
+
+        //Van Netwerk
+        [DataMember]
+        public string NetwerkMerk { get; set; }
     }
     #endregion
 
