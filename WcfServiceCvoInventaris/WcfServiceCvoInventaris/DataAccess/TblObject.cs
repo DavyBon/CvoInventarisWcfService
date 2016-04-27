@@ -20,10 +20,10 @@ namespace WcfServiceCvoInventaris.DataAccess
                 {
                     connection.Open();
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    //command.Parameters.Add(new SqlParameter("@idObjectType", obj.IdObjectType));
+                    command.Parameters.Add(new SqlParameter("@idObjectType", obj.ObjectType.Id));
                     command.Parameters.Add(new SqlParameter("@kenmerken", obj.Kenmerken));
-                    //command.Parameters.Add(new SqlParameter("@idLeverancier", obj.IdLeverancier));
-                    //command.Parameters.Add(new SqlParameter("@idFactuur", obj.IdFactuur));
+                    command.Parameters.Add(new SqlParameter("@idLeverancier", obj.Leverancier.IdLeverancier));
+                    command.Parameters.Add(new SqlParameter("@idFactuur", obj.Factuur.IdFactuur));
                     return Convert.ToInt32(command.ExecuteScalar());
                 }
             }
@@ -64,7 +64,10 @@ namespace WcfServiceCvoInventaris.DataAccess
         public List<Object> GetAll()
         {
             List<Object> list = new List<Object>();
-            Object obj;
+            WcfServiceCvoInventaris.Object obj;
+            Leverancier leverancier;
+            Factuur factuur;
+            ObjectTypes objType;
             try
             {
                 using (SqlCommand command = new SqlCommand("TblObjectReadAll", connection))
@@ -75,19 +78,64 @@ namespace WcfServiceCvoInventaris.DataAccess
 
                     while (mySqlDataReader.Read())
                     {
-                        obj = new Object();
+                        obj = new WcfServiceCvoInventaris.Object();
+                        leverancier = new Leverancier();
+                        factuur = new Factuur();
+                        objType = new ObjectTypes();
+
+                        leverancier.IdLeverancier = (int)mySqlDataReader["idLeverancier"];
+                        leverancier.Afkorting = mySqlDataReader["afkorting"].ToString();
+                        leverancier.Bic = mySqlDataReader["bic"].ToString();
+                        leverancier.BtwNummer = mySqlDataReader["btwNummer"].ToString();
+                        leverancier.BusNummer = (int)mySqlDataReader["busNummer"];
+                        leverancier.Email = mySqlDataReader["email"].ToString();
+                        leverancier.Fax = mySqlDataReader["fax"].ToString();
+                        leverancier.HuisNummer = (int)mySqlDataReader["huisNummer"];
+                        leverancier.Iban = mySqlDataReader["iban"].ToString();
+                        leverancier.Naam = mySqlDataReader["naam"].ToString();
+                        leverancier.Postcode = (int)mySqlDataReader["postcode"];
+                        leverancier.Straat = mySqlDataReader["straat"].ToString();
+                        leverancier.Telefoon = mySqlDataReader["telefoon"].ToString();
+                        leverancier.ToegevoegdOp = (DateTime)mySqlDataReader["toegevoegdOp"];
+                        leverancier.Website = mySqlDataReader["website"].ToString();
+
+                        factuur.IdFactuur = (int)mySqlDataReader["idFactuur"];
+                        factuur.Afschrijfperiode = (int)mySqlDataReader["Afschrijfperiode"];
+                        factuur.Boekjaar = mySqlDataReader["Boekjaar"].ToString();
+                        factuur.CvoVolgNummer = mySqlDataReader["CvoVolgNummer"].ToString();
+                        factuur.DatumInsert = (DateTime)mySqlDataReader["DatumInsert"];
+                        factuur.DatumModified = (DateTime)mySqlDataReader["DatumModified"];
+                        factuur.FactuurDatum = (DateTime)mySqlDataReader["FactuurDatum"];
+                        factuur.FactuurNummer = mySqlDataReader["FactuurNummer"].ToString();
+                        factuur.FactuurStatusGetekend = Convert.ToBoolean(mySqlDataReader["FactuurStatusGetekend"]);
+                        factuur.Garantie = (int)mySqlDataReader["Garantie"];
+                        factuur.Leverancier = leverancier;
+                        factuur.OleDoc = mySqlDataReader["OleDoc"].ToString();
+                        factuur.OleDocFileName = mySqlDataReader["OleDocFileName"].ToString();
+                        factuur.OleDocPath = mySqlDataReader["OleDocPath"].ToString();
+                        factuur.Omschrijving = mySqlDataReader["Omschrijving"].ToString();
+                        factuur.Opmerking = mySqlDataReader["Opmerking"].ToString();
+                        factuur.Prijs = (int)mySqlDataReader["Prijs"];
+                        factuur.UserInsert = mySqlDataReader["UserInsert"].ToString();
+                        factuur.UserModified = mySqlDataReader["UserModified"].ToString();
+                        factuur.VerwerkingsDatum = (DateTime)mySqlDataReader["VerwerkingsDatum"];
+
+                        objType.Id = (int)mySqlDataReader["idObjectType"];
+                        objType.Omschrijving = mySqlDataReader["omschrijving"].ToString();
+
                         obj.Id = (int)mySqlDataReader["idObject"];
-                        //obj.IdObjectType = (int)mySqlDataReader["idObjectType"];
                         obj.Kenmerken = mySqlDataReader["kenmerken"].ToString();
-                        //obj.IdLeverancier = (int)mySqlDataReader["idLeverancier"];
-                        //obj.IdFactuur = (int)mySqlDataReader["idFactuur"];
+                        obj.Leverancier = leverancier;
+                        obj.Factuur = factuur;
+                        obj.ObjectType = objType;
                         list.Add(obj);
                     }
                     return list;
                 }
             }
-            catch
+            catch(Exception e)
             {
+                Debug.WriteLine(e);
                 return null;
             }
             finally
@@ -98,7 +146,10 @@ namespace WcfServiceCvoInventaris.DataAccess
 
         public Object GetById(int id)
         {
-            Object obj = new Object();
+            WcfServiceCvoInventaris.Object obj = new WcfServiceCvoInventaris.Object();
+            Leverancier leverancier;
+            Factuur factuur;
+            ObjectTypes objType;
             try
             {
                 using (SqlCommand command = new SqlCommand("TblObjectReadOne", connection))
@@ -110,12 +161,55 @@ namespace WcfServiceCvoInventaris.DataAccess
 
                     while (mySqlDataReader.Read())
                     {
+                        leverancier = new Leverancier();
+                        factuur = new Factuur();
+                        objType = new ObjectTypes();
+
+                        leverancier.IdLeverancier = (int)mySqlDataReader["idLeverancier"];
+                        leverancier.Afkorting = mySqlDataReader["afkorting"].ToString();
+                        leverancier.Bic = mySqlDataReader["bic"].ToString();
+                        leverancier.BtwNummer = mySqlDataReader["btwNummer"].ToString();
+                        leverancier.BusNummer = (int)mySqlDataReader["busNummer"];
+                        leverancier.Email = mySqlDataReader["email"].ToString();
+                        leverancier.Fax = mySqlDataReader["fax"].ToString();
+                        leverancier.HuisNummer = (int)mySqlDataReader["huisNummer"];
+                        leverancier.Iban = mySqlDataReader["iban"].ToString();
+                        leverancier.Naam = mySqlDataReader["naam"].ToString();
+                        leverancier.Postcode = (int)mySqlDataReader["postcode"];
+                        leverancier.Straat = mySqlDataReader["straat"].ToString();
+                        leverancier.Telefoon = mySqlDataReader["telefoon"].ToString();
+                        leverancier.ToegevoegdOp = (DateTime)mySqlDataReader["toegevoegdOp"];
+                        leverancier.Website = mySqlDataReader["website"].ToString();
+
+                        factuur.IdFactuur = (int)mySqlDataReader["idFactuur"];
+                        factuur.Afschrijfperiode = (int)mySqlDataReader["Afschrijfperiode"];
+                        factuur.Boekjaar = mySqlDataReader["Boekjaar"].ToString();
+                        factuur.CvoVolgNummer = mySqlDataReader["CvoVolgNummer"].ToString();
+                        factuur.DatumInsert = (DateTime)mySqlDataReader["DatumInsert"];
+                        factuur.DatumModified = (DateTime)mySqlDataReader["DatumModified"];
+                        factuur.FactuurDatum = (DateTime)mySqlDataReader["FactuurDatum"];
+                        factuur.FactuurNummer = mySqlDataReader["FactuurNummer"].ToString();
+                        factuur.FactuurStatusGetekend = Convert.ToBoolean(mySqlDataReader["FactuurStatusGetekend"]);
+                        factuur.Garantie = (int)mySqlDataReader["Garantie"];
+                        factuur.Leverancier = leverancier;
+                        factuur.OleDoc = mySqlDataReader["OleDoc"].ToString();
+                        factuur.OleDocFileName = mySqlDataReader["OleDocFileName"].ToString();
+                        factuur.OleDocPath = mySqlDataReader["OleDocPath"].ToString();
+                        factuur.Omschrijving = mySqlDataReader["Omschrijving"].ToString();
+                        factuur.Opmerking = mySqlDataReader["Opmerking"].ToString();
+                        factuur.Prijs = (int)mySqlDataReader["Prijs"];
+                        factuur.UserInsert = mySqlDataReader["UserInsert"].ToString();
+                        factuur.UserModified = mySqlDataReader["UserModified"].ToString();
+                        factuur.VerwerkingsDatum = (DateTime)mySqlDataReader["VerwerkingsDatum"];
+
+                        objType.Id = (int)mySqlDataReader["idObjectType"];
+                        objType.Omschrijving = mySqlDataReader["omschrijving"].ToString();
 
                         obj.Id = (int)mySqlDataReader["idObject"];
-                        //obj.IdObjectType = (int)mySqlDataReader["idObjectType"];
                         obj.Kenmerken = mySqlDataReader["kenmerken"].ToString();
-                        //obj.IdLeverancier = (int)mySqlDataReader["idLeverancier"];
-                        //obj.IdFactuur = (int)mySqlDataReader["idFactuur"];
+                        obj.Leverancier = leverancier;
+                        obj.Factuur = factuur;
+                        obj.ObjectType = objType;
 
                     }
                     return obj;
@@ -140,10 +234,10 @@ namespace WcfServiceCvoInventaris.DataAccess
                     connection.Open();
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.Add(new SqlParameter("@id", obj.Id));
-                    //command.Parameters.Add(new SqlParameter("@idObjectType", obj.IdObjectType));
+                    command.Parameters.Add(new SqlParameter("@idObjectType", obj.ObjectType.Id));
                     command.Parameters.Add(new SqlParameter("@kenmerken", obj.Kenmerken));
-                    //command.Parameters.Add(new SqlParameter("@idLeverancier", obj.IdLeverancier));
-                    //command.Parameters.Add(new SqlParameter("@idFactuur", obj.IdFactuur));
+                    command.Parameters.Add(new SqlParameter("@idLeverancier", obj.Leverancier.IdLeverancier));
+                    command.Parameters.Add(new SqlParameter("@idFactuur", obj.Factuur.IdFactuur));
                     command.ExecuteReader();
                 }
                 return true;
