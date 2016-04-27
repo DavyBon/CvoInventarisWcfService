@@ -443,14 +443,14 @@ namespace WcfServiceCvoInventaris
     {
         public int Id { get; set; }
         public string Label { get; set; }
-        public int IdObject { get; set; }
-        public int IdLokaal { get; set; }
+        public WcfServiceCvoInventaris.Object Object { get; set; }
+        public Lokaal Lokaal { get; set; }
         public int Aankoopjaar { get; set; }
         public int Afschrijvingsperiode { get; set; }
         public string Historiek { get; set; }
         public bool IsActief { get; set; }
         public bool IsAanwezig { get; set; }
-        public int IdVerzekering { get; set; }
+        public Verzekering Verzekering { get; set; }
     }
     #endregion
 
@@ -458,10 +458,10 @@ namespace WcfServiceCvoInventaris
     public class Object
     {
         public int Id { get; set; }
-        public int IdObjectType { get; set; }
+        public ObjectTypes ObjectType { get; set; }
         public string Kenmerken { get; set; }
-        public int IdLeverancier { get; set; }
-        public int IdFactuur { get; set; }
+        public Leverancier Leverancier { get; set; }
+        public Factuur Factuur { get; set; }
     }
     #endregion
 
@@ -675,11 +675,7 @@ namespace WcfServiceCvoInventaris
         public bool IsComputerLokaal { get; set; }
 
         [DataMember]
-        public int IdNetwerk { get; set; }
-
-        //Van Netwerk
-        [DataMember]
-        public string NetwerkMerk { get; set; }
+        public Netwerk Netwerk { get; set; }
     }
     #endregion
 
@@ -709,7 +705,7 @@ namespace WcfServiceCvoInventaris
         public DateTime VerwerkingsDatum { get; set; }
 
         [DataMember]
-        public int IdLeverancier { get; set; }
+        public Leverancier Leverancier { get; set; }
 
         [DataMember]
         public int Prijs { get; set; }

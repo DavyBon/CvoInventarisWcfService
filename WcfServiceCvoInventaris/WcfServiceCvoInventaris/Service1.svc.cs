@@ -32,7 +32,6 @@ namespace WcfServiceCvoInventaris
         TblLokaal dataLokaal;
         TblFactuur dataFactuur;
         SqlConnection connection = new SqlConnection("Data Source=92.222.220.213,1500;Initial Catalog=CvoInventarisdb;Persist Security Info=True;User ID=sa;Password=grati#s1867");
-        SqlCommand command;
         #endregion
 
         #region CONSTRUCTOR

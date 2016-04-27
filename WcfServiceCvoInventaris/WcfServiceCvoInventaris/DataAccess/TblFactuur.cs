@@ -72,7 +72,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                             f.FactuurDatum = (DateTime)dr["FactuurDatum"];
                             f.FactuurStatusGetekend = (bool)dr["FactuurStatusGetekend"];
                             f.VerwerkingsDatum = (DateTime)dr["VerwerkingsDatum"];
-                            f.IdLeverancier = (int)dr["idLeverancier"];
+                            //f.IdLeverancier = (int)dr["idLeverancier"];
                             f.Prijs = (int)dr["Prijs"];
                             f.Garantie = (int)dr["Garantie"];
                             f.Omschrijving = dr["Omschrijving"].ToString();
@@ -126,7 +126,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                             f.FactuurDatum = (DateTime)dr["FactuurDatum"];
                             f.FactuurStatusGetekend = (bool)dr["FactuurStatusGetekend"];
                             f.VerwerkingsDatum = (DateTime)dr["VerwerkingsDatum"];
-                            f.IdLeverancier = (int)dr["idLeverancier"];
+                            //f.IdLeverancier = (int)dr["idLeverancier"];
                             f.Prijs = (int)dr["Prijs"];
                             f.Garantie = (int)dr["Garantie"];
                             f.Omschrijving = dr["Omschrijving"].ToString();
@@ -170,7 +170,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                         cmd.Parameters.AddWithValue("FactuurDatum", f.FactuurDatum);
                         cmd.Parameters.AddWithValue("FactuurStatusGetekend", f.FactuurStatusGetekend);
                         cmd.Parameters.AddWithValue("VerwerkingsDatum", f.VerwerkingsDatum);
-                        cmd.Parameters.AddWithValue("idLeverancier", f.IdLeverancier);
+                        //cmd.Parameters.AddWithValue("idLeverancier", f.IdLeverancier);
                         cmd.Parameters.AddWithValue("Prijs", f.Prijs);
                         cmd.Parameters.AddWithValue("Garantie", f.Garantie);
                         cmd.Parameters.AddWithValue("Omschrijving", f.Omschrijving);
@@ -215,7 +215,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                         cmd.Parameters.AddWithValue("FactuurDatum", f.FactuurDatum);
                         cmd.Parameters.AddWithValue("FactuurStatusGetekend", f.FactuurStatusGetekend);
                         cmd.Parameters.AddWithValue("VerwerkingsDatum", f.VerwerkingsDatum);
-                        cmd.Parameters.AddWithValue("idLeverancier", f.IdLeverancier);
+                        //cmd.Parameters.AddWithValue("idLeverancier", f.IdLeverancier);
                         cmd.Parameters.AddWithValue("Prijs", f.Prijs);
                         cmd.Parameters.AddWithValue("Garantie", f.Garantie);
                         cmd.Parameters.AddWithValue("Omschrijving", f.Omschrijving);

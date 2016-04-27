@@ -20,10 +20,10 @@ namespace WcfServiceCvoInventaris.DataAccess
                 {
                     connection.Open();
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter("@idObjectType", obj.IdObjectType));
+                    //command.Parameters.Add(new SqlParameter("@idObjectType", obj.IdObjectType));
                     command.Parameters.Add(new SqlParameter("@kenmerken", obj.Kenmerken));
-                    command.Parameters.Add(new SqlParameter("@idLeverancier", obj.IdLeverancier));
-                    command.Parameters.Add(new SqlParameter("@idFactuur", obj.IdFactuur));
+                    //command.Parameters.Add(new SqlParameter("@idLeverancier", obj.IdLeverancier));
+                    //command.Parameters.Add(new SqlParameter("@idFactuur", obj.IdFactuur));
                     return Convert.ToInt32(command.ExecuteScalar());
                 }
             }
@@ -77,10 +77,10 @@ namespace WcfServiceCvoInventaris.DataAccess
                     {
                         obj = new Object();
                         obj.Id = (int)mySqlDataReader["idObject"];
-                        obj.IdObjectType = (int)mySqlDataReader["idObjectType"];
+                        //obj.IdObjectType = (int)mySqlDataReader["idObjectType"];
                         obj.Kenmerken = mySqlDataReader["kenmerken"].ToString();
-                        obj.IdLeverancier = (int)mySqlDataReader["idLeverancier"];
-                        obj.IdFactuur = (int)mySqlDataReader["idFactuur"];
+                        //obj.IdLeverancier = (int)mySqlDataReader["idLeverancier"];
+                        //obj.IdFactuur = (int)mySqlDataReader["idFactuur"];
                         list.Add(obj);
                     }
                     return list;
@@ -112,10 +112,10 @@ namespace WcfServiceCvoInventaris.DataAccess
                     {
 
                         obj.Id = (int)mySqlDataReader["idObject"];
-                        obj.IdObjectType = (int)mySqlDataReader["idObjectType"];
+                        //obj.IdObjectType = (int)mySqlDataReader["idObjectType"];
                         obj.Kenmerken = mySqlDataReader["kenmerken"].ToString();
-                        obj.IdLeverancier = (int)mySqlDataReader["idLeverancier"];
-                        obj.IdFactuur = (int)mySqlDataReader["idFactuur"];
+                        //obj.IdLeverancier = (int)mySqlDataReader["idLeverancier"];
+                        //obj.IdFactuur = (int)mySqlDataReader["idFactuur"];
 
                     }
                     return obj;
@@ -140,10 +140,10 @@ namespace WcfServiceCvoInventaris.DataAccess
                     connection.Open();
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.Add(new SqlParameter("@id", obj.Id));
-                    command.Parameters.Add(new SqlParameter("@idObjectType", obj.IdObjectType));
+                    //command.Parameters.Add(new SqlParameter("@idObjectType", obj.IdObjectType));
                     command.Parameters.Add(new SqlParameter("@kenmerken", obj.Kenmerken));
-                    command.Parameters.Add(new SqlParameter("@idLeverancier", obj.IdLeverancier));
-                    command.Parameters.Add(new SqlParameter("@idFactuur", obj.IdFactuur));
+                    //command.Parameters.Add(new SqlParameter("@idLeverancier", obj.IdLeverancier));
+                    //command.Parameters.Add(new SqlParameter("@idFactuur", obj.IdFactuur));
                     command.ExecuteReader();
                 }
                 return true;

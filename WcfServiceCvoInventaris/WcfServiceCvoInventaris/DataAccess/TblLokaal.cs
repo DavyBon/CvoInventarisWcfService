@@ -69,8 +69,8 @@ namespace WcfServiceCvoInventaris.DataAccess
                             l.LokaalNaam = dr["lokaalNaam"].ToString();
                             l.AantalPlaatsen = (int)dr["aantalPlaatsen"];
                             l.IsComputerLokaal = (bool)dr["isComputerLokaal"];
-                            l.IdNetwerk = (int)dr["idNetwerk"];
-                            l.NetwerkMerk = dr["merk"].ToString();
+                            //l.IdNetwerk = (int)dr["idNetwerk"];
+                            //l.NetwerkMerk = dr["merk"].ToString();
                             list.Add(l);
                         }
                         return list;
@@ -111,7 +111,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                             l.LokaalNaam = dr["lokaalNaam"].ToString();
                             l.AantalPlaatsen = (int)dr["aantalPlaatsen"];
                             l.IsComputerLokaal = (bool)dr["isComputerLokaal"];
-                            l.IdNetwerk = (int)dr["idNetwerk"];
+                            //l.IdNetwerk = (int)dr["idNetwerk"];
                         }
                         return l;
                     }
@@ -140,7 +140,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                         cmd.Parameters.AddWithValue("lokaalNaam", l.LokaalNaam);
                         cmd.Parameters.AddWithValue("aantalPlaatsen", l.AantalPlaatsen);
                         cmd.Parameters.AddWithValue("isComputerLokaal", l.IsComputerLokaal);
-                        cmd.Parameters.AddWithValue("idNetwerk", l.IdNetwerk);
+                        //cmd.Parameters.AddWithValue("idNetwerk", l.IdNetwerk);
                         return Convert.ToInt32(cmd.ExecuteScalar());
                     }
                 }
@@ -170,7 +170,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                         cmd.Parameters.AddWithValue("lokaalNaam", l.LokaalNaam);
                         cmd.Parameters.AddWithValue("aantalPlaatsen", l.AantalPlaatsen);
                         cmd.Parameters.AddWithValue("isComputerLokaal", l.IsComputerLokaal);
-                        cmd.Parameters.AddWithValue("idNetwerk", l.IdNetwerk);
+                        //cmd.Parameters.AddWithValue("idNetwerk", l.IdNetwerk);
                         cmd.ExecuteReader();            
                     }
                     return true;
