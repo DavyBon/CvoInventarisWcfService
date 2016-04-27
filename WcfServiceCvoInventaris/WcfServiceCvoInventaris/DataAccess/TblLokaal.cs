@@ -64,13 +64,19 @@ namespace WcfServiceCvoInventaris.DataAccess
                         
                         while (dr.Read())
                         {
+                            Netwerk netwerk = new Netwerk();
+                            netwerk.Id = (int)dr["idNetwerk"];
+                            netwerk.Merk = dr["merk"].ToString();
+                            netwerk.Driver = dr["driver"].ToString();
+                            netwerk.Type = dr["type"].ToString();
+                            netwerk.Snelheid = dr["snelheid"].ToString();
+
                             Lokaal l = new Lokaal();
                             l.IdLokaal = (int)dr["idLokaal"];
                             l.LokaalNaam = dr["lokaalNaam"].ToString();
                             l.AantalPlaatsen = (int)dr["aantalPlaatsen"];
                             l.IsComputerLokaal = (bool)dr["isComputerLokaal"];
-                            //l.IdNetwerk = (int)dr["idNetwerk"];
-                            //l.NetwerkMerk = dr["merk"].ToString();
+                            l.Netwerk = netwerk;
                             list.Add(l);
                         }
                         return list;
@@ -106,12 +112,19 @@ namespace WcfServiceCvoInventaris.DataAccess
 
                         while (dr.Read())
                         {
+                            Netwerk netwerk = new Netwerk();
+                            netwerk.Id = (int)dr["idNetwerk"];
+                            netwerk.Merk = dr["merk"].ToString();
+                            netwerk.Driver = dr["driver"].ToString();
+                            netwerk.Type = dr["type"].ToString();
+                            netwerk.Snelheid = dr["snelheid"].ToString();
+
                             l = new Lokaal();
                             l.IdLokaal = (int)dr["idLokaal"];
                             l.LokaalNaam = dr["lokaalNaam"].ToString();
                             l.AantalPlaatsen = (int)dr["aantalPlaatsen"];
                             l.IsComputerLokaal = (bool)dr["isComputerLokaal"];
-                            //l.IdNetwerk = (int)dr["idNetwerk"];
+                            l.Netwerk = netwerk;
                         }
                         return l;
                     }
@@ -140,7 +153,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                         cmd.Parameters.AddWithValue("lokaalNaam", l.LokaalNaam);
                         cmd.Parameters.AddWithValue("aantalPlaatsen", l.AantalPlaatsen);
                         cmd.Parameters.AddWithValue("isComputerLokaal", l.IsComputerLokaal);
-                        //cmd.Parameters.AddWithValue("idNetwerk", l.IdNetwerk);
+                        cmd.Parameters.AddWithValue("idNetwerk", l.Netwerk.Id);
                         return Convert.ToInt32(cmd.ExecuteScalar());
                     }
                 }
@@ -170,7 +183,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                         cmd.Parameters.AddWithValue("lokaalNaam", l.LokaalNaam);
                         cmd.Parameters.AddWithValue("aantalPlaatsen", l.AantalPlaatsen);
                         cmd.Parameters.AddWithValue("isComputerLokaal", l.IsComputerLokaal);
-                        //cmd.Parameters.AddWithValue("idNetwerk", l.IdNetwerk);
+                        cmd.Parameters.AddWithValue("idNetwerk", l.Netwerk.Id);
                         cmd.ExecuteReader();            
                     }
                     return true;

@@ -64,6 +64,23 @@ namespace WcfServiceCvoInventaris.DataAccess
 
                         while (dr.Read())
                         {
+                            Leverancier leverancier = new Leverancier();
+                            leverancier.IdLeverancier = (int)dr["idLeverancier"];
+                            leverancier.Afkorting = dr["afkorting"].ToString();
+                            leverancier.Bic = dr["bic"].ToString();
+                            leverancier.BtwNummer = dr["btwNummer"].ToString();
+                            leverancier.BusNummer = (int)dr["busNummer"];
+                            leverancier.Email = dr["email"].ToString();
+                            leverancier.Fax = dr["fax"].ToString();
+                            leverancier.HuisNummer = (int)dr["huisNummer"];
+                            leverancier.Iban = dr["iban"].ToString();
+                            leverancier.Naam = dr["naam"].ToString();
+                            leverancier.Postcode = (int)dr["postcode"];
+                            leverancier.Straat = dr["straat"].ToString();
+                            leverancier.Telefoon = dr["telefoon"].ToString();
+                            leverancier.ToegevoegdOp = (DateTime)dr["toegevoegdOp"];
+                            leverancier.Website = dr["website"].ToString();
+
                             Factuur f = new Factuur();
                             f.IdFactuur = (int)dr["idFactuur"];
                             f.Boekjaar = dr["Boekjaar"].ToString();
@@ -72,7 +89,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                             f.FactuurDatum = (DateTime)dr["FactuurDatum"];
                             f.FactuurStatusGetekend = (bool)dr["FactuurStatusGetekend"];
                             f.VerwerkingsDatum = (DateTime)dr["VerwerkingsDatum"];
-                            //f.IdLeverancier = (int)dr["idLeverancier"];
+                            f.Leverancier = leverancier;
                             f.Prijs = (int)dr["Prijs"];
                             f.Garantie = (int)dr["Garantie"];
                             f.Omschrijving = dr["Omschrijving"].ToString();
@@ -118,6 +135,23 @@ namespace WcfServiceCvoInventaris.DataAccess
 
                         while (dr.Read())
                         {
+                            Leverancier leverancier = new Leverancier();
+                            leverancier.IdLeverancier = (int)dr["idLeverancier"];
+                            leverancier.Afkorting = dr["afkorting"].ToString();
+                            leverancier.Bic = dr["bic"].ToString();
+                            leverancier.BtwNummer = dr["btwNummer"].ToString();
+                            leverancier.BusNummer = (int)dr["busNummer"];
+                            leverancier.Email = dr["email"].ToString();
+                            leverancier.Fax = dr["fax"].ToString();
+                            leverancier.HuisNummer = (int)dr["huisNummer"];
+                            leverancier.Iban = dr["iban"].ToString();
+                            leverancier.Naam = dr["naam"].ToString();
+                            leverancier.Postcode = (int)dr["postcode"];
+                            leverancier.Straat = dr["straat"].ToString();
+                            leverancier.Telefoon = dr["telefoon"].ToString();
+                            leverancier.ToegevoegdOp = (DateTime)dr["toegevoegdOp"];
+                            leverancier.Website = dr["website"].ToString();
+
                             f = new Factuur();
                             f.IdFactuur = (int)dr["idFactuur"];
                             f.Boekjaar = dr["Boekjaar"].ToString();
@@ -126,7 +160,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                             f.FactuurDatum = (DateTime)dr["FactuurDatum"];
                             f.FactuurStatusGetekend = (bool)dr["FactuurStatusGetekend"];
                             f.VerwerkingsDatum = (DateTime)dr["VerwerkingsDatum"];
-                            //f.IdLeverancier = (int)dr["idLeverancier"];
+                            f.Leverancier = leverancier;
                             f.Prijs = (int)dr["Prijs"];
                             f.Garantie = (int)dr["Garantie"];
                             f.Omschrijving = dr["Omschrijving"].ToString();
@@ -170,7 +204,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                         cmd.Parameters.AddWithValue("FactuurDatum", f.FactuurDatum);
                         cmd.Parameters.AddWithValue("FactuurStatusGetekend", f.FactuurStatusGetekend);
                         cmd.Parameters.AddWithValue("VerwerkingsDatum", f.VerwerkingsDatum);
-                        //cmd.Parameters.AddWithValue("idLeverancier", f.IdLeverancier);
+                        cmd.Parameters.AddWithValue("idLeverancier", f.Leverancier.IdLeverancier);
                         cmd.Parameters.AddWithValue("Prijs", f.Prijs);
                         cmd.Parameters.AddWithValue("Garantie", f.Garantie);
                         cmd.Parameters.AddWithValue("Omschrijving", f.Omschrijving);
@@ -215,7 +249,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                         cmd.Parameters.AddWithValue("FactuurDatum", f.FactuurDatum);
                         cmd.Parameters.AddWithValue("FactuurStatusGetekend", f.FactuurStatusGetekend);
                         cmd.Parameters.AddWithValue("VerwerkingsDatum", f.VerwerkingsDatum);
-                        //cmd.Parameters.AddWithValue("idLeverancier", f.IdLeverancier);
+                        cmd.Parameters.AddWithValue("idLeverancier", f.Leverancier.IdLeverancier);
                         cmd.Parameters.AddWithValue("Prijs", f.Prijs);
                         cmd.Parameters.AddWithValue("Garantie", f.Garantie);
                         cmd.Parameters.AddWithValue("Omschrijving", f.Omschrijving);
