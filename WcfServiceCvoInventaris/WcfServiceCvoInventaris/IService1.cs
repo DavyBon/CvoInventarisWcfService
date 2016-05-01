@@ -480,51 +480,16 @@ namespace WcfServiceCvoInventaris
     [DataContract]
     public class Hardware
     {
-        private int idHardware, idCpu, idDevice, idGrafischeKaart, idHarddisk;
-
         [DataMember]
-        public int IdCpu
-        {
-            get { return idCpu; }
-            set { idCpu = value; }
-        }
+        public int Id { get; set; }
         [DataMember]
-        public int IdDevice
-        {
-            get { return idDevice; }
-            set { idDevice = value; }
-        }
+        public Cpu Cpu { get; set; }
         [DataMember]
-        public int IdGrafischeKaart
-        {
-            get { return idGrafischeKaart; }
-            set { idGrafischeKaart = value; }
-        }
+        public Device Device { get; set; }
         [DataMember]
-        public int IdHarddisk
-        {
-            get { return idHarddisk; }
-            set { idHarddisk = value; }
-        }
+        public GrafischeKaart GrafischeKaart { get; set; }
         [DataMember]
-        public int IdHardware
-        {
-            get
-            { return idHardware; }
-            set
-            { idHardware = value; }
-        }
-        [DataMember]
-        public string CpuMerk { get; set; }
-
-        [DataMember]
-        public string DeviceMerk { get; set; }
-
-        [DataMember]
-        public string GrafischeKaartMerk { get; set; }
-
-        [DataMember]
-        public string HarddiskMerk { get; set; }
+        public Harddisk Harddisk { get; set; }
     }
 
     #endregion

@@ -24,10 +24,10 @@ namespace WcfServiceCvoInventaris.DataAccess
             {
                 SqlCommand command = new SqlCommand("TblHardwareInsert", con);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@idCpu", t.IdCpu);
-                command.Parameters.AddWithValue("@idDevice", t.IdDevice);
-                command.Parameters.AddWithValue("@idGrafischeKaart", t.IdGrafischeKaart);
-                command.Parameters.AddWithValue("@idHarddisk", t.IdHarddisk);
+                command.Parameters.AddWithValue("@idCpu", t.Cpu.IdCpu);
+                command.Parameters.AddWithValue("@idDevice", t.Device.IdDevice);
+                command.Parameters.AddWithValue("@idGrafischeKaart", t.GrafischeKaart.IdGrafischeKaart);
+                command.Parameters.AddWithValue("@idHarddisk", t.Harddisk.IdHarddisk);
                 SqlParameter id = new SqlParameter("@idHardware", SqlDbType.Int);
                 id.Direction = ParameterDirection.Output;
                 command.Parameters.Add(id);
@@ -58,15 +58,41 @@ namespace WcfServiceCvoInventaris.DataAccess
                         while (reader.Read())
                         {
                             Hardware hardware = new Hardware();
-                            hardware.IdHardware = (int)reader["idHardware"];
-                            hardware.IdCpu = (int)reader["idCpu"];
-                            hardware.IdDevice = (int)reader["idDevice"];
-                            hardware.IdGrafischeKaart = (int)reader["idGrafischeKaart"];
-                            hardware.IdHarddisk = (int)reader["idHarddisk"];
-                            hardware.CpuMerk = reader["cm"].ToString();
-                            hardware.DeviceMerk = reader["dm"].ToString();
-                            hardware.GrafischeKaartMerk = reader["gm"].ToString();
-                            hardware.HarddiskMerk = reader["hm"].ToString();
+                            Cpu cpu = new Cpu();
+                            Device device = new Device();
+                            GrafischeKaart grafischeKaart = new GrafischeKaart();
+                            Harddisk harddisk = new Harddisk();
+
+                            cpu.IdCpu = (int)reader["idCpu"];
+                            cpu.FabrieksNummer = reader["cpu fabrieksnummer"].ToString();
+                            cpu.Merk = reader["cpu merk"].ToString();
+                            cpu.Snelheid = (int)reader["cpu snelheid"];
+                            cpu.Type = reader["cpu type"].ToString();
+
+                            device.IdDevice = (int)reader["idDevice"];
+                            device.FabrieksNummer = reader["device fabrieksnummer"].ToString();
+                            device.IsPcCompatibel = (bool)reader["device isPcCompatibel"];
+                            device.Merk = reader["device merk"].ToString();
+                            device.Serienummer = reader["device serienummer"].ToString();
+                            device.Type = reader["device type"].ToString();
+
+                            grafischeKaart.IdGrafischeKaart = (int)reader["idGrafischeKaart"];
+                            grafischeKaart.Driver = reader["grafischeKaart driver"].ToString();
+                            grafischeKaart.FabrieksNummer = reader["grafischeKaart fabrieksnummer"].ToString();
+                            grafischeKaart.Merk = reader["grafischeKaart merk"].ToString();
+                            grafischeKaart.Type = reader["grafischeKaart type"].ToString();
+
+                            harddisk.IdHarddisk = (int)reader["idHarddisk"];
+                            harddisk.FabrieksNummer = reader["harddisk fabrieksnummer"].ToString();
+                            harddisk.Grootte = (int)reader["harddisk grootte"];
+                            harddisk.Merk = reader["harddisk merk"].ToString();
+
+                            hardware.Id = (int)reader["idHardware"];
+                            hardware.Cpu = cpu;
+                            hardware.Device = device;
+                            hardware.GrafischeKaart = grafischeKaart;
+                            hardware.Harddisk = harddisk;
+
                             hardwares.Add(hardware);
                         }
 
@@ -81,6 +107,10 @@ namespace WcfServiceCvoInventaris.DataAccess
         public Hardware GetById(int id)
         {
             Hardware hardware = new Hardware();
+            Cpu cpu = new Cpu();
+            Device device = new Device();
+            GrafischeKaart grafischeKaart = new GrafischeKaart();
+            Harddisk harddisk = new Harddisk();
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
                 SqlCommand command = new SqlCommand("TblHardwareReadOne", con);
@@ -93,15 +123,35 @@ namespace WcfServiceCvoInventaris.DataAccess
                     if (reader.HasRows)
                     {
                         reader.Read();
-                        hardware.IdHardware = (int)reader["idHardware"];
-                        hardware.IdCpu = (int)reader["idCpu"];
-                        hardware.IdDevice = (int)reader["idDevice"];
-                        hardware.IdGrafischeKaart = (int)reader["idGrafischeKaart"];
-                        hardware.IdHarddisk = (int)reader["idHarddisk"];
-                        hardware.CpuMerk = reader["cm"].ToString();
-                        hardware.DeviceMerk = reader["dm"].ToString();
-                        hardware.GrafischeKaartMerk = reader["gm"].ToString();
-                        hardware.HarddiskMerk = reader["hm"].ToString();
+                        cpu.IdCpu = (int)reader["idCpu"];
+                        cpu.FabrieksNummer = reader["cpu fabrieksnummer"].ToString();
+                        cpu.Merk = reader["cpu merk"].ToString();
+                        cpu.Snelheid = (int)reader["cpu snelheid"];
+                        cpu.Type = reader["cpu type"].ToString();
+
+                        device.IdDevice = (int)reader["idDevice"];
+                        device.FabrieksNummer = reader["device fabrieksnummer"].ToString();
+                        device.IsPcCompatibel = (bool)reader["device isPcCompatibel"];
+                        device.Merk = reader["device merk"].ToString();
+                        device.Serienummer = reader["device serienummer"].ToString();
+                        device.Type = reader["device type"].ToString();
+
+                        grafischeKaart.IdGrafischeKaart = (int)reader["idGrafischeKaart"];
+                        grafischeKaart.Driver = reader["grafischeKaart driver"].ToString();
+                        grafischeKaart.FabrieksNummer = reader["grafischeKaart fabrieksnummer"].ToString();
+                        grafischeKaart.Merk = reader["grafischeKaart merk"].ToString();
+                        grafischeKaart.Type = reader["grafischeKaart type"].ToString();
+
+                        harddisk.IdHarddisk = (int)reader["idHarddisk"];
+                        harddisk.FabrieksNummer = reader["harddisk fabrieksnummer"].ToString();
+                        harddisk.Grootte = (int)reader["harddisk grootte"];
+                        harddisk.Merk = reader["harddisk merk"].ToString();
+
+                        hardware.Id = (int)reader["idHardware"];
+                        hardware.Cpu = cpu;
+                        hardware.Device = device;
+                        hardware.GrafischeKaart = grafischeKaart;
+                        hardware.Harddisk = harddisk;
                     }
                 }
                 catch   { }
@@ -117,11 +167,11 @@ namespace WcfServiceCvoInventaris.DataAccess
             {
                 SqlCommand command = new SqlCommand("TblHardwareUpdate", con);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@idHardware", t.IdHardware);
-                command.Parameters.AddWithValue("@idCpu", t.IdCpu);
-                command.Parameters.AddWithValue("@idDevice", t.IdDevice);
-                command.Parameters.AddWithValue("@idGrafischeKaart", t.IdGrafischeKaart);
-                command.Parameters.AddWithValue("@idHarddisk", t.IdHarddisk);
+                command.Parameters.AddWithValue("@idHardware", t.Id);
+                command.Parameters.AddWithValue("@idCpu", t.Cpu.IdCpu);
+                command.Parameters.AddWithValue("@idDevice", t.Device.IdDevice);
+                command.Parameters.AddWithValue("@idGrafischeKaart", t.GrafischeKaart.IdGrafischeKaart);
+                command.Parameters.AddWithValue("@idHarddisk", t.Harddisk.IdHarddisk);
                 try
                 {
                     con.Open();
