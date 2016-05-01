@@ -301,5 +301,54 @@ namespace WcfServiceCvoInventaris.DataAccess
         }
 
         #endregion
+        public List<Factuur> Rapportering(string s, string[] keuzeKolommen)
+        {
+            List<Factuur> facturen = new List<Factuur>();
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand(s, con);
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                try
+                {
+                    con.Open();
+                    SqlDataReader result = cmd.ExecuteReader();
+                    if (result.HasRows)
+                    {
+                        while (result.Read())
+                        {
+                            Factuur factuur = new Factuur();
+                            Leverancier leverancier = new Leverancier();
+                            if (keuzeKolommen.Contains("TblFactuur.idFactuur")) { factuur.IdFactuur = (int)result["idFactuur"]; }
+                            if (keuzeKolommen.Contains("TblFactuur.Boekjaar")) { factuur.Boekjaar = result["Boekjaar"].ToString(); }
+                            if (keuzeKolommen.Contains("TblFactuur.CvoVolgNummer")) { factuur.CvoVolgNummer = result["CvoVolgNummer"].ToString(); }
+                            if (keuzeKolommen.Contains("TblFactuur.FactuurNummer")) { factuur.FactuurNummer = result["FactuurNummer"].ToString(); }
+                            if (keuzeKolommen.Contains("TblFactuur.FactuurDatum")) { factuur.FactuurDatum = (DateTime)result["FactuurDatum"]; }
+                            if (keuzeKolommen.Contains("TblFactuur.FactuurStatusGetekend")) { factuur.FactuurStatusGetekend = (bool)result["FactuurStatusGetekend"]; }
+                            if (keuzeKolommen.Contains("TblFactuur.TblFactuur.VerwerkingsDatum")) { factuur.VerwerkingsDatum = (DateTime)result["Boekjaar"]; }
+                            if (keuzeKolommen.Contains("TblLeverancier.naam")) { leverancier.Naam = result["Naam"].ToString(); }
+                            if (keuzeKolommen.Contains("TblFactuur.Prijs")) { factuur.Prijs = (int)result["Prijs"]; }
+                            if (keuzeKolommen.Contains("TblFactuur.Garantie")) { factuur.Garantie = (int)result["Garantie"]; }
+                            if (keuzeKolommen.Contains("TblFactuur.Omschrijving")) { factuur.Omschrijving = result["Omschrijving"].ToString(); }
+                            if (keuzeKolommen.Contains("TblFactuur.Opmerking")) { factuur.Opmerking = result["Opmerking"].ToString(); }
+                            if (keuzeKolommen.Contains("TblFactuur.Afschrijfperiode")) { factuur.Afschrijfperiode = (int)result["Afschrijfperiode"]; }
+                            if (keuzeKolommen.Contains("TblFactuur.TblFactuur.OleDoc")) { factuur.OleDoc = result["OleDoc"].ToString(); }
+                            if (keuzeKolommen.Contains("TblFactuur.OleDocPath")) { factuur.OleDocPath = result["OleDocPath"].ToString(); }
+                            if (keuzeKolommen.Contains("TblFactuur.OleDocFileName")) { factuur.OleDocFileName = result["OleDocFileName"].ToString(); }
+                            if (keuzeKolommen.Contains("TblFactuur.DatumInsert")) { factuur.DatumInsert = (DateTime)result["DatumInsert"]; }
+                            if (keuzeKolommen.Contains("TblFactuur.UserInsert")) { factuur.UserInsert = result["UserInsert"].ToString(); }
+                            if (keuzeKolommen.Contains("TblFactuur.DatumModified")) { factuur.DatumModified = (DateTime)result["DatumModified"]; }
+                            if (keuzeKolommen.Contains("TblFactuur.UserModified")) { factuur.UserModified = result["UserModified"].ToString(); }
+                            factuur.Leverancier = leverancier;
+                            facturen.Add(factuur);
+                        }
+                    }
+                }
+                catch
+                {
+                }
+            }
+            return facturen;
+        }
     }
 }

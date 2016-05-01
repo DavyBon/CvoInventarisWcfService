@@ -611,5 +611,10 @@ namespace WcfServiceCvoInventaris
         {
             return dataLeverancier.Rapportering(s, keuzeKolommen);
         }
+
+        public List<Factuur> RapporteringFactuur(string s, string[] keuzeKolommen)
+        {
+            return dataFactuur.Rapportering(s, keuzeKolommen);
+        }
     }
 }

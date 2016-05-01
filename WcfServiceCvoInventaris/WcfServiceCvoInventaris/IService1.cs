@@ -298,6 +298,8 @@ namespace WcfServiceCvoInventaris
         [OperationContract]
         bool FactuurDelete(int id);
         #endregion
+        [OperationContract]
+        List<Factuur> RapporteringFactuur(string s, string[] keuzeKolommen);
     }
 
     #region DataContract TblAccount
