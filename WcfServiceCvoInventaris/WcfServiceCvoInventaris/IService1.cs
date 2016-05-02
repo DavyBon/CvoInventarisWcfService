@@ -281,6 +281,8 @@ namespace WcfServiceCvoInventaris
         [OperationContract]
         bool LokaalDelete(int id);
         #endregion
+        [OperationContract]
+        List<Lokaal> RapporteringLokaal(string s, string[] keuzeKolommen);
 
         #region CRUD TblFactuur
         [OperationContract]

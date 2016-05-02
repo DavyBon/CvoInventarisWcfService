@@ -223,5 +223,40 @@ namespace WcfServiceCvoInventaris.DataAccess
         }
 
         #endregion
+        public List<Lokaal> Rapportering(string s, string[] keuzeKolommen)
+        {
+            List<Lokaal> lokalen = new List<Lokaal>();
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand(s, con);
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                try
+                {
+                    con.Open();
+                    SqlDataReader result = cmd.ExecuteReader();
+                    if (result.HasRows)
+                    {
+                        while (result.Read())
+                        {
+                            Lokaal lokaal = new Lokaal();
+                            Netwerk netwerk = new Netwerk();
+                            if (keuzeKolommen.Contains("TblLokaal.idLokaal")) { lokaal.IdLokaal = (int)result["idLokaal"]; }
+                            if (keuzeKolommen.Contains("TblLokaal.lokaalNaam")) { lokaal.LokaalNaam = result["lokaalNaam"].ToString(); }
+                            if (keuzeKolommen.Contains("TblLokaal.aantalPlaatsen")) { lokaal.AantalPlaatsen = (int)result["aantalPlaatsen"]; }
+                            if (keuzeKolommen.Contains("TblLokaal.isComputerLokaal")) { lokaal.IsComputerLokaal = (bool)result["isComputerLokaal"]; }
+                            if (keuzeKolommen.Contains("TblNetwerk.merk")) { netwerk.Merk = result["merk"].ToString(); }
+
+                            lokaal.Netwerk = netwerk;
+                            lokalen.Add(lokaal);
+                        }
+                    }
+                }
+                catch
+                {
+                }
+            }
+            return lokalen;
+        }
     }
 }
