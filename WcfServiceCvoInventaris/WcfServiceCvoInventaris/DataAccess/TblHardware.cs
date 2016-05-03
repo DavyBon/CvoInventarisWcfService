@@ -207,5 +207,48 @@ namespace WcfServiceCvoInventaris.DataAccess
 
             return result;
         }
+
+        public List<Hardware> Rapportering(string s, string[] keuzeKolommen)
+        {
+            List<Hardware> hardwares = new List<Hardware>();
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand(s, con);
+                cmd.CommandType = System.Data.CommandType.Text;
+
+                try
+                {
+                    con.Open();
+                    SqlDataReader result = cmd.ExecuteReader();
+                    if (result.HasRows)
+                    {
+                        while (result.Read())
+                        {
+                            Hardware hardware = new Hardware();
+                            Cpu cpu = new Cpu();
+                            Device device = new Device();
+                            GrafischeKaart grafischeKaart = new GrafischeKaart();
+                            Harddisk harddisk = new Harddisk();
+
+                            if (keuzeKolommen.Contains("TblHardware.idHardware")) { hardware.Id = (int)result["idLokaal"]; }
+                            if (keuzeKolommen.Contains("TblCpu.merk cm")) { cpu.Merk = result["cm"].ToString(); }
+                            if (keuzeKolommen.Contains("TblDevice.merk dm")) { device.Merk = result["dm"].ToString(); }
+                            if (keuzeKolommen.Contains("TblGrafischeKaart.merk gm")) { grafischeKaart.Merk = result["gm"].ToString(); }
+                            if (keuzeKolommen.Contains("TblHarddisk.merk hm")) { harddisk.Merk = result["hm"].ToString(); }
+
+                            hardware.Cpu = cpu;
+                            hardware.Device = device;
+                            hardware.GrafischeKaart = grafischeKaart;
+                            hardware.Harddisk = harddisk;
+                            hardwares.Add(hardware);
+                        }
+                    }
+                }
+                catch
+                {
+                }
+            }
+            return hardwares;
+        }
     }
 }

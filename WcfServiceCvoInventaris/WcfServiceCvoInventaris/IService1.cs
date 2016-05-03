@@ -223,6 +223,8 @@ namespace WcfServiceCvoInventaris
         [OperationContract]
         bool HardwareDelete(int id);
         #endregion
+        [OperationContract]
+        List<Hardware> RapporteringHardware(string s, string[] keuzeKolommen);
 
         #region CRUD TblHarddisk
         [OperationContract]

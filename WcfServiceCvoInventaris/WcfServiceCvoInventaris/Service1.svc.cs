@@ -621,5 +621,10 @@ namespace WcfServiceCvoInventaris
         {
             return dataLokaal.Rapportering(s, keuzeKolommen);
         }
+
+        public List<Hardware> RapporteringHardware(string s, string[] keuzeKolommen)
+        {
+            return tblHardware.Rapportering(s, keuzeKolommen);
+        }
     }
 }
