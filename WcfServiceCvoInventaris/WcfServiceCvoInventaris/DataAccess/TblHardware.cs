@@ -230,7 +230,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                             GrafischeKaart grafischeKaart = new GrafischeKaart();
                             Harddisk harddisk = new Harddisk();
 
-                            if (keuzeKolommen.Contains("TblHardware.idHardware")) { hardware.Id = (int)result["idLokaal"]; }
+                            if (keuzeKolommen.Contains("TblHardware.idHardware")) { hardware.Id = (int)result["idHardware"]; }
                             if (keuzeKolommen.Contains("TblCpu.merk cm")) { cpu.Merk = result["cm"].ToString(); }
                             if (keuzeKolommen.Contains("TblDevice.merk dm")) { device.Merk = result["dm"].ToString(); }
                             if (keuzeKolommen.Contains("TblGrafischeKaart.merk gm")) { grafischeKaart.Merk = result["gm"].ToString(); }
