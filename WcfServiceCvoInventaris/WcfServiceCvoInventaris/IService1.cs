@@ -314,21 +314,6 @@ namespace WcfServiceCvoInventaris
         public int IdAccount { get; set; }
 
         [DataMember]
-        public string Type { get; set; }
-
-        [DataMember]
-        public string Gebruikersnaam { get; set; }
-
-        [DataMember]
-        public string Voornaam { get; set; }
-
-        [DataMember]
-        public string Achternaam { get; set; }
-
-        [DataMember]
-        public string Telefoonnummer { get; set; }
-
-        [DataMember]
         public string Email { get; set; }
 
         [DataMember]

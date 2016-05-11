@@ -38,11 +38,6 @@ namespace WcfServiceCvoInventaris.DataAccess
                     {
                         result.Read();
                         acc.IdAccount = (int)result["IdAccount"];
-                        acc.Type = result["Type"].ToString();
-                        acc.Gebruikersnaam = result["Gebruikersnaam"].ToString();
-                        acc.Voornaam = result["Voornaam"].ToString();
-                        acc.Achternaam = result["Achternaam"].ToString();
-                        acc.Telefoonnummer = result["Telefoonnummer"].ToString();
                         acc.Email = result["Email"].ToString();
                         acc.Wachtwoord = result["Wachtwoord"].ToString();
                     }
@@ -72,11 +67,6 @@ namespace WcfServiceCvoInventaris.DataAccess
                         {
                             Account acc = new Account();
                             acc.IdAccount = (int)result["IdAccount"];
-                            acc.Type = result["Type"].ToString();
-                            acc.Gebruikersnaam = result["Gebruikersnaam"].ToString();
-                            acc.Voornaam = result["Voornaam"].ToString();
-                            acc.Achternaam = result["Achternaam"].ToString();
-                            acc.Telefoonnummer = result["Telefoonnummer"].ToString();
                             acc.Email = result["Email"].ToString();
                             acc.Wachtwoord = result["Wachtwoord"].ToString();
                             accs.Add(acc);
@@ -98,11 +88,6 @@ namespace WcfServiceCvoInventaris.DataAccess
                 SqlCommand cmd = new SqlCommand("TblAccountInsert", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Type", acc.Type);
-                cmd.Parameters.AddWithValue("@Gebruikersnaam", acc.Gebruikersnaam);
-                cmd.Parameters.AddWithValue("@Voornaam", acc.Voornaam);
-                cmd.Parameters.AddWithValue("@Achternaam", acc.Achternaam);
-                cmd.Parameters.AddWithValue("@Telefoonnummer", acc.Telefoonnummer);
                 cmd.Parameters.AddWithValue("@Email", acc.Email);
                 cmd.Parameters.AddWithValue("@Wachtwoord", PasswordStorage.CreateHash(acc.Wachtwoord));
 
@@ -126,11 +111,6 @@ namespace WcfServiceCvoInventaris.DataAccess
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@IdAccount", acc.IdAccount);
-                cmd.Parameters.AddWithValue("@Type", acc.Type);
-                cmd.Parameters.AddWithValue("@Gebruikersnaam", acc.Gebruikersnaam);
-                cmd.Parameters.AddWithValue("@Voornaam", acc.Voornaam);
-                cmd.Parameters.AddWithValue("@Achternaam", acc.Achternaam);
-                cmd.Parameters.AddWithValue("@Telefoonnummer", acc.Telefoonnummer);
                 cmd.Parameters.AddWithValue("@Email", acc.Email);
                 cmd.Parameters.AddWithValue("@Wachtwoord", PasswordStorage.CreateHash(acc.Wachtwoord));
 
@@ -188,11 +168,6 @@ namespace WcfServiceCvoInventaris.DataAccess
                     {
                         result.Read();
                         acc.IdAccount = (int)result["IdAccount"];
-                        acc.Type = result["Type"].ToString();
-                        acc.Gebruikersnaam = result["Gebruikersnaam"].ToString();
-                        acc.Voornaam = result["Voornaam"].ToString();
-                        acc.Achternaam = result["Achternaam"].ToString();
-                        acc.Telefoonnummer = result["Telefoonnummer"].ToString();
                         acc.Email = result["Email"].ToString();
                         acc.Wachtwoord = result["Wachtwoord"].ToString();
                     }
