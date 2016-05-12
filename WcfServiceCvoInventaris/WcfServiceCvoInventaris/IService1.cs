@@ -32,6 +32,9 @@ namespace WcfServiceCvoInventaris
 
         [OperationContract]
         Account AccountGetByEmail(string email);
+
+        [OperationContract]
+        bool AccountVerstuurWachtwoordResetEmail(string email);
         #endregion
 
         #region CRUD TblSession

@@ -6,6 +6,11 @@ using System.Linq;
 using System.Web;
 using WcfServiceCvoInventaris.DataAccess.Interfaces;
 using WcfServiceCvoInventaris.Helpers;
+using System.Net.Mail;
+using System.Text;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace WcfServiceCvoInventaris.DataAccess
 {
@@ -177,6 +182,66 @@ namespace WcfServiceCvoInventaris.DataAccess
                 }
             }
             return acc;
+        }
+
+        public bool VerstuurWachtwoordResetEmail(string email)
+        {
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand("spResetWachtwoord", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@Email", email);
+
+                try
+                {
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        if (Convert.ToBoolean(rdr["ReturnCode"]))
+                        {
+                            VerstuurEmail(rdr["Email"].ToString(), rdr["UniqueId"].ToString());
+                            return true;
+                        }
+                    }
+                }
+                catch
+                {
+                    return false;
+                }             
+            }
+            return false;
+        }
+
+        void VerstuurEmail(string toEmail, string uniqueId)
+        {
+            string cvoInventarisEmail = "CvoInventaris@gmail.com";
+
+            MailMessage mailMessage = new MailMessage(cvoInventarisEmail, toEmail);
+
+            StringBuilder sbEmailBody = new StringBuilder();
+            sbEmailBody.Append("Beste CVO inventaris gebruiker,<br/><br/>");
+            sbEmailBody.Append("Klik op de onderstaande link om uw wachtwoord te wijzigen.");
+            sbEmailBody.Append("<br/>");
+            sbEmailBody.Append("http://localhost/Account/ResetWachtwoord?uid=" + uniqueId);
+            sbEmailBody.Append("<br/><br/>");
+            sbEmailBody.Append("<b>CVO inventaris</b>");
+
+            mailMessage.IsBodyHtml = true;
+
+            mailMessage.Body = sbEmailBody.ToString();
+            mailMessage.Subject = "CVO inventaris wachtwoord reset link";
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+
+            smtpClient.Credentials = new System.Net.NetworkCredential()
+            {
+                UserName = cvoInventarisEmail,
+                Password = "H7zPyCpz"
+            };
+
+            smtpClient.EnableSsl = true;
+            smtpClient.Send(mailMessage);
         }
     }
 }

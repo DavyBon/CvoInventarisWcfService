@@ -127,6 +127,11 @@ namespace WcfServiceCvoInventaris
         {
             return tblAccount.GetByEmail(email);
         }
+
+        public bool AccountVerstuurWachtwoordResetEmail(string email)
+        {
+            return tblAccount.VerstuurWachtwoordResetEmail(email);
+        }
         #endregion
 
         #region CRUD TblSession
