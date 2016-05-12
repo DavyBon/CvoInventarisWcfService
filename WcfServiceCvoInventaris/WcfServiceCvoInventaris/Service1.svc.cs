@@ -31,6 +31,7 @@ namespace WcfServiceCvoInventaris
         TblLeverancier dataLeverancier;
         TblLokaal dataLokaal;
         TblFactuur dataFactuur;
+        TblCampus dataCampus;
         SqlConnection connection = new SqlConnection("Data Source=92.222.220.213,1500;Initial Catalog=CvoInventarisdb;Persist Security Info=True;User ID=sa;Password=grati#s1867");
         #endregion
 
@@ -53,6 +54,7 @@ namespace WcfServiceCvoInventaris
             dataLeverancier = new TblLeverancier();
             dataLokaal = new TblLokaal();
             dataFactuur = new TblFactuur();
+            dataCampus = new TblCampus();
         }
         #endregion
 
@@ -582,6 +584,41 @@ namespace WcfServiceCvoInventaris
             return false;
         }
         #endregion
+
+        #region CRUD TblCampus
+        public List<Campus> CampusGetAll()
+        {
+            List<Campus> list = dataCampus.GetAll();
+            if (list == null) return null;
+            return list;
+        }
+
+        public Campus CampusGetById(int id)
+        {
+            Campus c = dataCampus.GetById(id);
+            if (c == null) return null;
+            return c;
+        }
+
+        public int CampusCreate(Campus c)
+        {
+            try { return dataCampus.Create(c); }
+            catch { return -1; }
+        }
+
+        public bool CampusUpdate(Campus c)
+        {
+            if (dataCampus.Update(c)) return true;
+            return false;
+        }
+
+        public bool CampusDelete(int id)
+        {
+            if (dataCampus.Delete(id)) return true;
+            return false;
+        }
+        #endregion
+
         public List<Cpu> RapporteringCpu(string s, string[] keuzeKolommen)
         {
             return tblCpu.Rapportering(s, keuzeKolommen);

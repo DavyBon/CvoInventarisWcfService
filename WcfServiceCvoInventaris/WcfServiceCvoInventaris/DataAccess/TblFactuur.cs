@@ -88,17 +88,12 @@ namespace WcfServiceCvoInventaris.DataAccess
                             f.FactuurNummer = dr["FactuurNummer"].ToString();
                             f.ScholengroepNummer = dr["ScholengroepNummer"].ToString();
                             f.FactuurDatum = (DateTime)dr["FactuurDatum"];
-                            f.FactuurStatusGetekend = (bool)dr["FactuurStatusGetekend"];
-                            f.VerwerkingsDatum = (DateTime)dr["VerwerkingsDatum"];
                             f.Leverancier = leverancier;
                             f.Prijs = (int)dr["Prijs"];
                             f.Garantie = (int)dr["Garantie"];
                             f.Omschrijving = dr["Omschrijving"].ToString();
                             f.Opmerking = dr["Opmerking"].ToString();
                             f.Afschrijfperiode = (int)dr["Afschrijfperiode"];
-                            f.OleDoc = dr["OleDoc"].ToString();
-                            f.OleDocPath = dr["OleDocPath"].ToString();
-                            f.OleDocFileName = dr["OleDocFileName"].ToString();
                             f.DatumInsert = (DateTime)dr["DatumInsert"];
                             f.UserInsert = dr["UserInsert"].ToString();
                             f.DatumModified = (DateTime)dr["DatumModified"];
@@ -160,17 +155,12 @@ namespace WcfServiceCvoInventaris.DataAccess
                             f.FactuurNummer = dr["FactuurNummer"].ToString();
                             f.ScholengroepNummer = dr["ScholengroepNummer"].ToString();
                             f.FactuurDatum = (DateTime)dr["FactuurDatum"];
-                            f.FactuurStatusGetekend = (bool)dr["FactuurStatusGetekend"];
-                            f.VerwerkingsDatum = (DateTime)dr["VerwerkingsDatum"];
                             f.Leverancier = leverancier;
                             f.Prijs = (int)dr["Prijs"];
                             f.Garantie = (int)dr["Garantie"];
                             f.Omschrijving = dr["Omschrijving"].ToString();
                             f.Opmerking = dr["Opmerking"].ToString();
                             f.Afschrijfperiode = (int)dr["Afschrijfperiode"];
-                            f.OleDoc = dr["OleDoc"].ToString();
-                            f.OleDocPath = dr["OleDocPath"].ToString();
-                            f.OleDocFileName = dr["OleDocFileName"].ToString();
                             f.DatumInsert = (DateTime)dr["DatumInsert"];
                             f.UserInsert = dr["UserInsert"].ToString();
                             f.DatumModified = (DateTime)dr["DatumModified"];
@@ -205,17 +195,12 @@ namespace WcfServiceCvoInventaris.DataAccess
                         cmd.Parameters.AddWithValue("FactuurNummer", f.FactuurNummer);
                         cmd.Parameters.AddWithValue("ScholengroepNummer", f.ScholengroepNummer);
                         cmd.Parameters.AddWithValue("FactuurDatum", f.FactuurDatum);
-                        cmd.Parameters.AddWithValue("FactuurStatusGetekend", f.FactuurStatusGetekend);
-                        cmd.Parameters.AddWithValue("VerwerkingsDatum", f.VerwerkingsDatum);
                         cmd.Parameters.AddWithValue("idLeverancier", f.Leverancier.IdLeverancier);
                         cmd.Parameters.AddWithValue("Prijs", f.Prijs);
                         cmd.Parameters.AddWithValue("Garantie", f.Garantie);
                         cmd.Parameters.AddWithValue("Omschrijving", f.Omschrijving);
                         cmd.Parameters.AddWithValue("Opmerking", f.Opmerking);
                         cmd.Parameters.AddWithValue("Afschrijfperiode", f.Afschrijfperiode);
-                        cmd.Parameters.AddWithValue("OleDoc", f.OleDoc);
-                        cmd.Parameters.AddWithValue("OleDocPath", f.OleDocPath);
-                        cmd.Parameters.AddWithValue("OleDocFileName", f.OleDocFileName);
                         cmd.Parameters.AddWithValue("DatumInsert", f.DatumInsert);
                         cmd.Parameters.AddWithValue("UserInsert", f.UserInsert);
                         cmd.Parameters.AddWithValue("DatumModified", f.DatumModified);
@@ -251,17 +236,12 @@ namespace WcfServiceCvoInventaris.DataAccess
                         cmd.Parameters.AddWithValue("FactuurNummer", f.FactuurNummer);
                         cmd.Parameters.AddWithValue("ScholengroepNummer", f.ScholengroepNummer);
                         cmd.Parameters.AddWithValue("FactuurDatum", f.FactuurDatum);
-                        cmd.Parameters.AddWithValue("FactuurStatusGetekend", f.FactuurStatusGetekend);
-                        cmd.Parameters.AddWithValue("VerwerkingsDatum", f.VerwerkingsDatum);
                         cmd.Parameters.AddWithValue("idLeverancier", f.Leverancier.IdLeverancier);
                         cmd.Parameters.AddWithValue("Prijs", f.Prijs);
                         cmd.Parameters.AddWithValue("Garantie", f.Garantie);
                         cmd.Parameters.AddWithValue("Omschrijving", f.Omschrijving);
                         cmd.Parameters.AddWithValue("Opmerking", f.Opmerking);
                         cmd.Parameters.AddWithValue("Afschrijfperiode", f.Afschrijfperiode);
-                        cmd.Parameters.AddWithValue("OleDoc", f.OleDoc);
-                        cmd.Parameters.AddWithValue("OleDocPath", f.OleDocPath);
-                        cmd.Parameters.AddWithValue("OleDocFileName", f.OleDocFileName);
                         cmd.Parameters.AddWithValue("DatumInsert", f.DatumInsert);
                         cmd.Parameters.AddWithValue("UserInsert", f.UserInsert);
                         cmd.Parameters.AddWithValue("DatumModified", f.DatumModified);
@@ -329,17 +309,12 @@ namespace WcfServiceCvoInventaris.DataAccess
                             if (keuzeKolommen.Contains("TblFactuur.FactuurNummer")) { factuur.FactuurNummer = result["FactuurNummer"].ToString(); }
                             if (keuzeKolommen.Contains("TblFactuur.ScholengroepNummer")) { factuur.ScholengroepNummer = result["ScholengroepNummer"].ToString(); }
                             if (keuzeKolommen.Contains("TblFactuur.FactuurDatum")) { factuur.FactuurDatum = (DateTime)result["FactuurDatum"]; }
-                            if (keuzeKolommen.Contains("TblFactuur.FactuurStatusGetekend")) { factuur.FactuurStatusGetekend = (bool)result["FactuurStatusGetekend"]; }
-                            if (keuzeKolommen.Contains("TblFactuur.TblFactuur.VerwerkingsDatum")) { factuur.VerwerkingsDatum = (DateTime)result["Boekjaar"]; }
                             if (keuzeKolommen.Contains("TblLeverancier.naam")) { leverancier.Naam = result["Naam"].ToString(); }
                             if (keuzeKolommen.Contains("TblFactuur.Prijs")) { factuur.Prijs = (int)result["Prijs"]; }
                             if (keuzeKolommen.Contains("TblFactuur.Garantie")) { factuur.Garantie = (int)result["Garantie"]; }
                             if (keuzeKolommen.Contains("TblFactuur.Omschrijving")) { factuur.Omschrijving = result["Omschrijving"].ToString(); }
                             if (keuzeKolommen.Contains("TblFactuur.Opmerking")) { factuur.Opmerking = result["Opmerking"].ToString(); }
                             if (keuzeKolommen.Contains("TblFactuur.Afschrijfperiode")) { factuur.Afschrijfperiode = (int)result["Afschrijfperiode"]; }
-                            if (keuzeKolommen.Contains("TblFactuur.TblFactuur.OleDoc")) { factuur.OleDoc = result["OleDoc"].ToString(); }
-                            if (keuzeKolommen.Contains("TblFactuur.OleDocPath")) { factuur.OleDocPath = result["OleDocPath"].ToString(); }
-                            if (keuzeKolommen.Contains("TblFactuur.OleDocFileName")) { factuur.OleDocFileName = result["OleDocFileName"].ToString(); }
                             if (keuzeKolommen.Contains("TblFactuur.DatumInsert")) { factuur.DatumInsert = (DateTime)result["DatumInsert"]; }
                             if (keuzeKolommen.Contains("TblFactuur.UserInsert")) { factuur.UserInsert = result["UserInsert"].ToString(); }
                             if (keuzeKolommen.Contains("TblFactuur.DatumModified")) { factuur.DatumModified = (DateTime)result["DatumModified"]; }

@@ -10,9 +10,8 @@ using WcfServiceCvoInventaris.DataAccess.Interfaces;
 
 namespace WcfServiceCvoInventaris.DataAccess
 {
-    public class TblLokaal : ICrudable<Lokaal>
+    public class TblCampus : ICrudable<Campus>
     {
-
         #region Fields
 
         private string message;
@@ -48,28 +47,29 @@ namespace WcfServiceCvoInventaris.DataAccess
 
         #region GetAll
 
-        public List<Lokaal> GetAll()
+        public List<Campus> GetAll()
         {
-            List<Lokaal> list = new List<Lokaal>();
-            
-            try 
-            { 
+            List<Campus> list = new List<Campus>();
+
+            try
+            {
                 using (SqlConnection con = new SqlConnection(GetConnectionString()))
                 {
-                    using (SqlCommand cmd = new SqlCommand("TblLokaalReadAll", con))
+                    using (SqlCommand cmd = new SqlCommand("TblCampusReadAll", con))
                     {
                         con.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
                         SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                        
+
                         while (dr.Read())
                         {
-                            Lokaal l = new Lokaal();
-                            l.IdLokaal = (int)dr["idLokaal"];
-                            l.LokaalNaam = dr["lokaalNaam"].ToString();
-                            l.AantalPlaatsen = (int)dr["aantalPlaatsen"];
-                            l.IsComputerLokaal = (bool)dr["isComputerLokaal"];
-                            list.Add(l);
+                            Campus c = new Campus();
+                            c.IdCampus = (int)dr["idCampus"];
+                            c.Naam = dr["naam"].ToString();
+                            c.Postcode = dr["postcode"].ToString();
+                            c.Straat = dr["straat"].ToString();
+                            c.Nummer = dr["nummer"].ToString();
+                            list.Add(c);
                         }
                         return list;
                     }
@@ -81,36 +81,34 @@ namespace WcfServiceCvoInventaris.DataAccess
             }
         }
 
-
-
         #endregion
 
         #region GetById
 
-        public Lokaal GetById(int id)
+        public Campus GetById(int id)
         {
-            Lokaal l = null;
+            Campus c = null;
 
-            try 
-            { 
+            try
+            {
                 using (SqlConnection con = new SqlConnection(GetConnectionString()))
                 {
-                    using (SqlCommand cmd = new SqlCommand("TblLokaalReadOne", con))
+                    using (SqlCommand cmd = new SqlCommand("TblCampusReadOne", con))
                     {
                         con.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("idLokaal", id);
+                        cmd.Parameters.AddWithValue("idCampus", id);
                         SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
                         while (dr.Read())
                         {
-                            l = new Lokaal();
-                            l.IdLokaal = (int)dr["idLokaal"];
-                            l.LokaalNaam = dr["lokaalNaam"].ToString();
-                            l.AantalPlaatsen = (int)dr["aantalPlaatsen"];
-                            l.IsComputerLokaal = (bool)dr["isComputerLokaal"];
+                            c = new Campus();
+                            c.Naam = dr["naam"].ToString();
+                            c.Postcode = dr["postcode"].ToString();
+                            c.Straat = dr["straat"].ToString();
+                            c.Nummer = dr["nummer"].ToString();
                         }
-                        return l;
+                        return c;
                     }
                 }
             }
@@ -124,19 +122,20 @@ namespace WcfServiceCvoInventaris.DataAccess
 
         #region Create
 
-        public int Create(Lokaal l)
+        public int Create(Campus c)
         {
-            try 
+            try
             {
                 using (SqlConnection con = new SqlConnection(GetConnectionString()))
                 {
-                    using (SqlCommand cmd = new SqlCommand("TblLokaalInsert", con))
+                    using (SqlCommand cmd = new SqlCommand("TblCampusInsert", con))
                     {
                         con.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("lokaalNaam", l.LokaalNaam);
-                        cmd.Parameters.AddWithValue("aantalPlaatsen", l.AantalPlaatsen);
-                        cmd.Parameters.AddWithValue("isComputerLokaal", l.IsComputerLokaal);
+                        cmd.Parameters.AddWithValue("naam", c.Naam);
+                        cmd.Parameters.AddWithValue("postcode", c.Postcode);
+                        cmd.Parameters.AddWithValue("straat", c.Straat);
+                        cmd.Parameters.AddWithValue("nummer", c.Nummer);
                         return Convert.ToInt32(cmd.ExecuteScalar());
                     }
                 }
@@ -152,21 +151,21 @@ namespace WcfServiceCvoInventaris.DataAccess
 
         #region Update
 
-        public bool Update(Lokaal l)
+        public bool Update(Campus c)
         {
-            try 
+            try
             {
                 using (SqlConnection con = new SqlConnection(GetConnectionString()))
                 {
-                    using (SqlCommand cmd = new SqlCommand("TblLokaalUpdate", con))
+                    using (SqlCommand cmd = new SqlCommand("TblCampusUpdate", con))
                     {
                         con.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("idLokaal", l.IdLokaal);
-                        cmd.Parameters.AddWithValue("lokaalNaam", l.LokaalNaam);
-                        cmd.Parameters.AddWithValue("aantalPlaatsen", l.AantalPlaatsen);
-                        cmd.Parameters.AddWithValue("isComputerLokaal", l.IsComputerLokaal);
-                        cmd.ExecuteReader();            
+                        cmd.Parameters.AddWithValue("naam", c.Naam);
+                        cmd.Parameters.AddWithValue("postcode", c.Postcode);
+                        cmd.Parameters.AddWithValue("straat", c.Straat);
+                        cmd.Parameters.AddWithValue("nummer", c.Nummer);
+                        cmd.ExecuteReader();
                     }
                     return true;
                 }
@@ -183,15 +182,15 @@ namespace WcfServiceCvoInventaris.DataAccess
 
         public bool Delete(int id)
         {
-            try 
+            try
             {
                 using (SqlConnection con = new SqlConnection(GetConnectionString()))
                 {
-                    using (SqlCommand cmd = new SqlCommand("TblLokaalDelete", con))
+                    using (SqlCommand cmd = new SqlCommand("TblCampusDelete", con))
                     {
                         con.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("idLokaal", id);
+                        cmd.Parameters.AddWithValue("idCampus", id);
                         cmd.ExecuteReader();
                     }
                     return true;
@@ -205,37 +204,38 @@ namespace WcfServiceCvoInventaris.DataAccess
         }
 
         #endregion
-        public List<Lokaal> Rapportering(string s, string[] keuzeKolommen)
+        public List<Campus> Rapportering(string s, string[] keuzeKolommen)
         {
-            List<Lokaal> lokalen = new List<Lokaal>();
-            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            List<Campus> list = new List<Campus>();
+
+            try
             {
-                SqlCommand cmd = new SqlCommand(s, con);
-                cmd.CommandType = System.Data.CommandType.Text;
-
-                try
+                using (SqlConnection con = new SqlConnection(GetConnectionString()))
                 {
-                    con.Open();
-                    SqlDataReader result = cmd.ExecuteReader();
-                    if (result.HasRows)
+                    using (SqlCommand cmd = new SqlCommand(s, con))
                     {
-                        while (result.Read())
-                        {
-                            Lokaal lokaal = new Lokaal();
-                            if (keuzeKolommen.Contains("TblLokaal.idLokaal")) { lokaal.IdLokaal = (int)result["idLokaal"]; }
-                            if (keuzeKolommen.Contains("TblLokaal.lokaalNaam")) { lokaal.LokaalNaam = result["lokaalNaam"].ToString(); }
-                            if (keuzeKolommen.Contains("TblLokaal.aantalPlaatsen")) { lokaal.AantalPlaatsen = (int)result["aantalPlaatsen"]; }
-                            if (keuzeKolommen.Contains("TblLokaal.isComputerLokaal")) { lokaal.IsComputerLokaal = (bool)result["isComputerLokaal"]; }
+                        con.Open();
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
-                            lokalen.Add(lokaal);
+                        while (dr.Read())
+                        {
+                            Campus c = new Campus();
+                            if (keuzeKolommen.Contains("idCampus")) { c.IdCampus = (int)dr["idCampus"]; }
+                            if (keuzeKolommen.Contains("naam")) { c.Naam = dr["naam"].ToString(); }
+                            if (keuzeKolommen.Contains("postcode")) { c.Postcode = dr["postcode"].ToString(); }
+                            if (keuzeKolommen.Contains("straat")) { c.Straat = dr["straat"].ToString(); }
+                            if (keuzeKolommen.Contains("nummer")) { c.Nummer = dr["nummer"].ToString(); }
+                            list.Add(c);
                         }
+                        return list;
                     }
                 }
-                catch
-                {
-                }
             }
-            return lokalen;
+            catch
+            {
+                return null;
+            }
         }
     }
 }

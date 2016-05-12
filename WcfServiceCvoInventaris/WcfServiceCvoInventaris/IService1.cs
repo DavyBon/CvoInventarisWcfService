@@ -304,6 +304,25 @@ namespace WcfServiceCvoInventaris
         #endregion
         [OperationContract]
         List<Factuur> RapporteringFactuur(string s, string[] keuzeKolommen);
+
+        #region CRUD Campus
+
+        [OperationContract]
+        List<Campus> CampusGetAll();
+
+        [OperationContract]
+        Campus CampusGetById(int id);
+
+        [OperationContract]
+        int CampusCreate(Campus c);
+
+        [OperationContract]
+        bool CampusUpdate(Campus c);
+
+        [OperationContract]
+        bool CampusDelete(int id);
+
+        #endregion
     }
 
     #region DataContract TblAccount
@@ -629,9 +648,6 @@ namespace WcfServiceCvoInventaris
 
         [DataMember]
         public bool IsComputerLokaal { get; set; }
-
-        [DataMember]
-        public Netwerk Netwerk { get; set; }
     }
     #endregion
 
@@ -658,12 +674,6 @@ namespace WcfServiceCvoInventaris
         public DateTime FactuurDatum { get; set; }
 
         [DataMember]
-        public bool FactuurStatusGetekend { get; set; }
-
-        [DataMember]
-        public DateTime VerwerkingsDatum { get; set; }
-
-        [DataMember]
         public Leverancier Leverancier { get; set; }
 
         [DataMember]
@@ -682,15 +692,6 @@ namespace WcfServiceCvoInventaris
         public int Afschrijfperiode { get; set; }
 
         [DataMember]
-        public string OleDoc { get; set; }
-
-        [DataMember]
-        public string OleDocPath { get; set; }
-
-        [DataMember]
-        public string OleDocFileName { get; set; }
-
-        [DataMember]
         public DateTime DatumInsert { get; set; }
 
         [DataMember]
@@ -704,5 +705,25 @@ namespace WcfServiceCvoInventaris
     }
     #endregion
 
+    #region DataContract TblCampus
+    [DataContract]
+    public class Campus
+    {
+        [DataMember]
+        public int IdCampus { get; set; }
+
+        [DataMember]
+        public string Naam { get; set; }
+
+        [DataMember]
+        public string Postcode { get; set; }
+
+        [DataMember]
+        public string Straat { get; set; }
+
+        [DataMember]
+        public string Nummer { get; set; }
+    }
+    #endregion
 
 }

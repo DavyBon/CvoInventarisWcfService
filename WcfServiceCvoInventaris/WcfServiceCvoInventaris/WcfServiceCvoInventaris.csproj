@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="DataAccess\Interfaces\ICrudable.cs" />
     <Compile Include="DataAccess\TblAccount.cs" />
+    <Compile Include="DataAccess\TblCampus.cs" />
     <Compile Include="DataAccess\TblCpu.cs" />
     <Compile Include="DataAccess\TblDevice.cs" />
     <Compile Include="DataAccess\TblFactuur.cs" />

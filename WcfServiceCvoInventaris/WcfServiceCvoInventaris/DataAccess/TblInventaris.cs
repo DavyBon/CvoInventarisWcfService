@@ -108,7 +108,6 @@ namespace WcfServiceCvoInventaris.DataAccess
                         lokaal.AantalPlaatsen = (int)mySqlDataReader["aantalPlaatsen"];
                         lokaal.IsComputerLokaal = Convert.ToBoolean(mySqlDataReader["isComputerLokaal"]);
                         lokaal.LokaalNaam = mySqlDataReader["lokaalNaam"].ToString();
-                        lokaal.Netwerk = netwerk;
 
                         leverancier.IdLeverancier = (int)mySqlDataReader["idLeverancier"];
                         leverancier.Afkorting = mySqlDataReader["afkorting"].ToString();
@@ -134,18 +133,13 @@ namespace WcfServiceCvoInventaris.DataAccess
                         factuur.DatumModified = (DateTime)mySqlDataReader["DatumModified"];
                         factuur.FactuurDatum = (DateTime)mySqlDataReader["FactuurDatum"];
                         factuur.FactuurNummer = mySqlDataReader["FactuurNummer"].ToString();
-                        factuur.FactuurStatusGetekend = Convert.ToBoolean(mySqlDataReader["FactuurStatusGetekend"]);
                         factuur.Garantie = (int)mySqlDataReader["Garantie"];
                         factuur.Leverancier = leverancier;
-                        factuur.OleDoc = mySqlDataReader["OleDoc"].ToString();
-                        factuur.OleDocFileName = mySqlDataReader["OleDocFileName"].ToString();
-                        factuur.OleDocPath = mySqlDataReader["OleDocPath"].ToString();
                         factuur.Omschrijving = mySqlDataReader["Omschrijving"].ToString();
                         factuur.Opmerking = mySqlDataReader["Opmerking"].ToString();
                         factuur.Prijs = (int)mySqlDataReader["Prijs"];
                         factuur.UserInsert = mySqlDataReader["UserInsert"].ToString();
                         factuur.UserModified = mySqlDataReader["UserModified"].ToString();
-                        factuur.VerwerkingsDatum = (DateTime)mySqlDataReader["VerwerkingsDatum"];
 
                         objType.Id = (int)mySqlDataReader["idObjectType"];
                         objType.Omschrijving = mySqlDataReader["omschrijving"].ToString();
@@ -224,7 +218,6 @@ namespace WcfServiceCvoInventaris.DataAccess
                         lokaal.AantalPlaatsen = (int)mySqlDataReader["aantalPlaatsen"];
                         lokaal.IsComputerLokaal = Convert.ToBoolean(mySqlDataReader["isComputerLokaal"]);
                         lokaal.LokaalNaam = mySqlDataReader["lokaalNaam"].ToString();
-                        lokaal.Netwerk = netwerk;
 
                         leverancier.IdLeverancier = (int)mySqlDataReader["idLeverancier"];
                         leverancier.Afkorting = mySqlDataReader["afkorting"].ToString();
@@ -250,18 +243,13 @@ namespace WcfServiceCvoInventaris.DataAccess
                         factuur.DatumModified = (DateTime)mySqlDataReader["DatumModified"];
                         factuur.FactuurDatum = (DateTime)mySqlDataReader["FactuurDatum"];
                         factuur.FactuurNummer = mySqlDataReader["FactuurNummer"].ToString();
-                        factuur.FactuurStatusGetekend = Convert.ToBoolean(mySqlDataReader["FactuurStatusGetekend"]);
                         factuur.Garantie = (int)mySqlDataReader["Garantie"];
                         factuur.Leverancier = leverancier;
-                        factuur.OleDoc = mySqlDataReader["OleDoc"].ToString();
-                        factuur.OleDocFileName = mySqlDataReader["OleDocFileName"].ToString();
-                        factuur.OleDocPath = mySqlDataReader["OleDocPath"].ToString();
                         factuur.Omschrijving = mySqlDataReader["Omschrijving"].ToString();
                         factuur.Opmerking = mySqlDataReader["Opmerking"].ToString();
                         factuur.Prijs = (int)mySqlDataReader["Prijs"];
                         factuur.UserInsert = mySqlDataReader["UserInsert"].ToString();
                         factuur.UserModified = mySqlDataReader["UserModified"].ToString();
-                        factuur.VerwerkingsDatum = (DateTime)mySqlDataReader["VerwerkingsDatum"];
 
                         objType.Id = (int)mySqlDataReader["idObjectType"];
                         objType.Omschrijving = mySqlDataReader["omschrijving"].ToString();
