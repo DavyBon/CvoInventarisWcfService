@@ -652,6 +652,9 @@ namespace WcfServiceCvoInventaris
         public string FactuurNummer { get; set; }
 
         [DataMember]
+        public string ScholengroepNummer { get; set; }
+
+        [DataMember]
         public DateTime FactuurDatum { get; set; }
 
         [DataMember]

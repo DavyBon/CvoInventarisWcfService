@@ -86,6 +86,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                             f.Boekjaar = dr["Boekjaar"].ToString();
                             f.CvoVolgNummer = dr["CvoVolgNummer"].ToString();
                             f.FactuurNummer = dr["FactuurNummer"].ToString();
+                            f.ScholengroepNummer = dr["ScholengroepNummer"].ToString();
                             f.FactuurDatum = (DateTime)dr["FactuurDatum"];
                             f.FactuurStatusGetekend = (bool)dr["FactuurStatusGetekend"];
                             f.VerwerkingsDatum = (DateTime)dr["VerwerkingsDatum"];
@@ -157,6 +158,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                             f.Boekjaar = dr["Boekjaar"].ToString();
                             f.CvoVolgNummer = dr["CvoVolgNummer"].ToString();
                             f.FactuurNummer = dr["FactuurNummer"].ToString();
+                            f.ScholengroepNummer = dr["ScholengroepNummer"].ToString();
                             f.FactuurDatum = (DateTime)dr["FactuurDatum"];
                             f.FactuurStatusGetekend = (bool)dr["FactuurStatusGetekend"];
                             f.VerwerkingsDatum = (DateTime)dr["VerwerkingsDatum"];
@@ -201,6 +203,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                         cmd.Parameters.AddWithValue("Boekjaar", f.Boekjaar);
                         cmd.Parameters.AddWithValue("CvoVolgNummer", f.CvoVolgNummer);
                         cmd.Parameters.AddWithValue("FactuurNummer", f.FactuurNummer);
+                        cmd.Parameters.AddWithValue("ScholengroepNummer", f.ScholengroepNummer);
                         cmd.Parameters.AddWithValue("FactuurDatum", f.FactuurDatum);
                         cmd.Parameters.AddWithValue("FactuurStatusGetekend", f.FactuurStatusGetekend);
                         cmd.Parameters.AddWithValue("VerwerkingsDatum", f.VerwerkingsDatum);
@@ -246,6 +249,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                         cmd.Parameters.AddWithValue("Boekjaar", f.Boekjaar);
                         cmd.Parameters.AddWithValue("CvoVolgNummer", f.CvoVolgNummer);
                         cmd.Parameters.AddWithValue("FactuurNummer", f.FactuurNummer);
+                        cmd.Parameters.AddWithValue("ScholengroepNummer", f.ScholengroepNummer);
                         cmd.Parameters.AddWithValue("FactuurDatum", f.FactuurDatum);
                         cmd.Parameters.AddWithValue("FactuurStatusGetekend", f.FactuurStatusGetekend);
                         cmd.Parameters.AddWithValue("VerwerkingsDatum", f.VerwerkingsDatum);
@@ -323,6 +327,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                             if (keuzeKolommen.Contains("TblFactuur.Boekjaar")) { factuur.Boekjaar = result["Boekjaar"].ToString(); }
                             if (keuzeKolommen.Contains("TblFactuur.CvoVolgNummer")) { factuur.CvoVolgNummer = result["CvoVolgNummer"].ToString(); }
                             if (keuzeKolommen.Contains("TblFactuur.FactuurNummer")) { factuur.FactuurNummer = result["FactuurNummer"].ToString(); }
+                            if (keuzeKolommen.Contains("TblFactuur.ScholengroepNummer")) { factuur.ScholengroepNummer = result["ScholengroepNummer"].ToString(); }
                             if (keuzeKolommen.Contains("TblFactuur.FactuurDatum")) { factuur.FactuurDatum = (DateTime)result["FactuurDatum"]; }
                             if (keuzeKolommen.Contains("TblFactuur.FactuurStatusGetekend")) { factuur.FactuurStatusGetekend = (bool)result["FactuurStatusGetekend"]; }
                             if (keuzeKolommen.Contains("TblFactuur.TblFactuur.VerwerkingsDatum")) { factuur.VerwerkingsDatum = (DateTime)result["Boekjaar"]; }
