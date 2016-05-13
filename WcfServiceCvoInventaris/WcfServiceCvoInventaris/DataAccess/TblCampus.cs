@@ -161,6 +161,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                     {
                         con.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("idCampus", c.IdCampus);
                         cmd.Parameters.AddWithValue("naam", c.Naam);
                         cmd.Parameters.AddWithValue("postcode", c.Postcode);
                         cmd.Parameters.AddWithValue("straat", c.Straat);
