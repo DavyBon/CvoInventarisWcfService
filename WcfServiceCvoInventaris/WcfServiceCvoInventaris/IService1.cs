@@ -35,6 +35,12 @@ namespace WcfServiceCvoInventaris
 
         [OperationContract]
         bool AccountVerstuurWachtwoordResetEmail(string email);
+
+        [OperationContract]
+        bool AccountIsWachtwoordResetLinkValid(string GUID);
+
+        [OperationContract]
+        bool AccountWijzigWachtwoord(string GUID, string wachtwoord);
         #endregion
 
         #region CRUD TblSession

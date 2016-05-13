@@ -132,6 +132,16 @@ namespace WcfServiceCvoInventaris
         {
             return tblAccount.VerstuurWachtwoordResetEmail(email);
         }
+
+        public bool AccountIsWachtwoordResetLinkValid(string GUID)
+        {
+            return tblAccount.IsWachtwoordResetLinkValid(GUID);
+        }
+
+        public bool AccountWijzigWachtwoord(string GUID, string wachtwoord)
+        {
+            return tblAccount.WijzigWachtwoord(GUID, wachtwoord);
+        }
         #endregion
 
         #region CRUD TblSession

@@ -221,10 +221,10 @@ namespace WcfServiceCvoInventaris.DataAccess
             MailMessage mailMessage = new MailMessage(cvoInventarisEmail, toEmail);
 
             StringBuilder sbEmailBody = new StringBuilder();
-            sbEmailBody.Append("Beste CVO inventaris gebruiker,<br/><br/>");
+            sbEmailBody.Append("Beste,<br/><br/>");
             sbEmailBody.Append("Klik op de onderstaande link om uw wachtwoord te wijzigen.");
             sbEmailBody.Append("<br/>");
-            sbEmailBody.Append("http://localhost/Account/ResetWachtwoord?uid=" + uniqueId);
+            sbEmailBody.Append("http://localhost/Account/WijzigWachtwoord?uid=" + uniqueId);
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("<b>CVO inventaris</b>");
 
@@ -242,6 +242,49 @@ namespace WcfServiceCvoInventaris.DataAccess
 
             smtpClient.EnableSsl = true;
             smtpClient.Send(mailMessage);
+        }
+
+        public bool IsWachtwoordResetLinkValid(string GUID)
+        {
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand("spIsWachtwoordResetLinkValid", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@GUID", GUID);
+
+                try
+                {
+                    con.Open();
+                    return Convert.ToBoolean(cmd.ExecuteScalar());
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool WijzigWachtwoord(string GUID, string wachtwoord)
+        {
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand("spWijzigWachtwoord", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@GUID", GUID);
+                cmd.Parameters.AddWithValue("@Wachtwoord ", PasswordStorage.CreateHash(wachtwoord));
+
+                try
+                {
+                    con.Open();
+                    return Convert.ToBoolean(cmd.ExecuteScalar());
+                }
+                catch
+                {
+                    return false;
+                }
+            }
         }
     }
 }
