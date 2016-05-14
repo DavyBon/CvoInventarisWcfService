@@ -103,6 +103,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                         while (dr.Read())
                         {
                             c = new Campus();
+                            c.IdCampus = (int)dr["idCampus"];
                             c.Naam = dr["naam"].ToString();
                             c.Postcode = dr["postcode"].ToString();
                             c.Straat = dr["straat"].ToString();
