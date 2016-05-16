@@ -232,7 +232,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                         factuur.Leverancier = leverancier;
                         factuur.Omschrijving = mySqlDataReader["Omschrijving"].ToString();
                         factuur.Opmerking = mySqlDataReader["Opmerking"].ToString();
-                        factuur.Prijs = (int)mySqlDataReader["Prijs"];
+                        factuur.Prijs = (decimal)mySqlDataReader["Prijs"];
                         factuur.UserInsert = mySqlDataReader["UserInsert"].ToString();
                         factuur.UserModified = mySqlDataReader["UserModified"].ToString();
 
