@@ -686,7 +686,7 @@ namespace WcfServiceCvoInventaris
         public Leverancier Leverancier { get; set; }
 
         [DataMember]
-        public int Prijs { get; set; }
+        public decimal Prijs { get; set; }
 
         [DataMember]
         public int Garantie { get; set; }
