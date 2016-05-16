@@ -72,7 +72,6 @@ namespace WcfServiceCvoInventaris.DataAccess
             List<Inventaris> list = new List<Inventaris>();
             Inventaris inventaris;
             Lokaal lokaal;
-            Netwerk netwerk;
             WcfServiceCvoInventaris.Object obj;
             Leverancier leverancier;
             Factuur factuur;
@@ -91,18 +90,11 @@ namespace WcfServiceCvoInventaris.DataAccess
                     {
                         inventaris = new Inventaris();
                         lokaal = new Lokaal();
-                        netwerk = new Netwerk();
                         obj = new WcfServiceCvoInventaris.Object();
                         leverancier = new Leverancier();
                         factuur = new Factuur();
                         objType = new ObjectTypes();
                         verzekering = new Verzekering();
-
-                        netwerk.Id = (int)mySqlDataReader["idNetwerk"];
-                        netwerk.Merk = mySqlDataReader["merk"].ToString();
-                        netwerk.Driver = mySqlDataReader["driver"].ToString();
-                        netwerk.Type = mySqlDataReader["type"].ToString();
-                        netwerk.Snelheid = mySqlDataReader["snelheid"].ToString();
 
                         lokaal.IdLokaal = (int)mySqlDataReader["idLokaal"];
                         lokaal.AantalPlaatsen = (int)mySqlDataReader["aantalPlaatsen"];
@@ -137,7 +129,7 @@ namespace WcfServiceCvoInventaris.DataAccess
                         factuur.Leverancier = leverancier;
                         factuur.Omschrijving = mySqlDataReader["Omschrijving"].ToString();
                         factuur.Opmerking = mySqlDataReader["Opmerking"].ToString();
-                        factuur.Prijs = (int)mySqlDataReader["Prijs"];
+                        factuur.Prijs = (decimal)mySqlDataReader["Prijs"];
                         factuur.UserInsert = mySqlDataReader["UserInsert"].ToString();
                         factuur.UserModified = mySqlDataReader["UserModified"].ToString();
 
@@ -182,7 +174,6 @@ namespace WcfServiceCvoInventaris.DataAccess
         {
             Inventaris inventaris = new Inventaris();
             Lokaal lokaal;
-            Netwerk netwerk;
             WcfServiceCvoInventaris.Object obj;
             Leverancier leverancier;
             Factuur factuur;
@@ -201,18 +192,12 @@ namespace WcfServiceCvoInventaris.DataAccess
                     {
                         inventaris = new Inventaris();
                         lokaal = new Lokaal();
-                        netwerk = new Netwerk();
                         obj = new WcfServiceCvoInventaris.Object();
                         leverancier = new Leverancier();
                         factuur = new Factuur();
                         objType = new ObjectTypes();
                         verzekering = new Verzekering();
 
-                        netwerk.Id = (int)mySqlDataReader["idNetwerk"];
-                        netwerk.Merk = mySqlDataReader["merk"].ToString();
-                        netwerk.Driver = mySqlDataReader["driver"].ToString();
-                        netwerk.Type = mySqlDataReader["type"].ToString();
-                        netwerk.Snelheid = mySqlDataReader["snelheid"].ToString();
 
                         lokaal.IdLokaal = (int)mySqlDataReader["idLokaal"];
                         lokaal.AantalPlaatsen = (int)mySqlDataReader["aantalPlaatsen"];
